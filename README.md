@@ -8,9 +8,9 @@ In this workshop, you will get hands-on experience with the open source framewor
 
 ## 1. Accounts
 
-1. Dynatrace - Assumes you will use a [trial SaaS dynatrace tenant](https://www.dynatrace.com/trial) and created a PaaS and API token.  See details in the [keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/)
-1. GitHub - Assumes you have a github account and a personal access token with the persmissions keptn expects. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/installation/setup-keptn-gke/)
-1. Cloud provider account.  Highly recommend to sign up for personal free trial as to have full admin rights and to not cause any issues with your enterprise account. Links to free trials
+1. **Dynatrace** - Assumes you will use a [trial SaaS dynatrace tenant](https://www.dynatrace.com/trial) and created a PaaS and API token.  See details in the [keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/)
+1. **GitHub** - Assumes you have a github account and a personal access token with the persmissions keptn expects. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/installation/setup-keptn-gke/)
+1. **Cloud provider account** - Highly recommend to sign up for personal free trial as to have full admin rights and to not cause any issues with your enterprise account. Links to free trials
    * [Google](https://cloud.google.com/free/)
    * [Azure](https://azure.microsoft.com/en-us/free/)
 
@@ -18,17 +18,15 @@ In this workshop, you will get hands-on experience with the open source framewor
 
 Keptn expects all the code repos and project files to be in the same GitHub Organization. So create a github new github organization for the keptn-orders for Keptn to use and for the keptn-orders application repos to be forked.  See details in the [github docs](https://github.com/organizations/new)
 
-Suggested gihub organization name: ```<your last name>-keptn-hackfest-<cloud provider>``` for example ```bacher-keptn-hackfest-gcloud```
-
-NOTE: If the 'orders-project' repo already exists in your personal github org, there may be errors when you onboard again.  So delete the repo if it exists.
+Suggested gihub organization name: ```<your last name>-keptn-hackfest-<cloud provider>```, e.g.: ```braeuer-keptn-hackfest-gcloud```
 
 ## 3. Tools
 
 In this workshop we are going to use a pre-built Docker image that already has the required tools installed. The only requirement is that you have Docker installed on your machine. You can install it using the instructions on the [Docker Homepage](https://docs.docker.com/install/)
 
-# Provision Cluster, Install Keptn, and onboard the Carts application
+# Provision Cluster and Install Keptn
 
-Now it's time to set up your workshop environment. During the setup, you will need the following values. We recommend to copy the following lines into an editor, fill them out and keep them as a reference for later:
+Now, it's time to set up your workshop environment. During the setup, you will need the following values. We recommend to copy the following lines into an editor, fill them out and keep them as a reference for later:
 
 ```
 Dynatrace Host Name (e.g. abc12345.live.dynatrace.com):
@@ -145,12 +143,11 @@ This script at the end will run the 'Validate Kubectl' script.
 
 This will install the Keptn control plane components into your cluster.  The install will take 5-10 minutes to perform.
 
-NOTE: Internally, this script will perform the following:
+**NOTE**: Internally, this script will perform the following:
 1. clone https://github.com/keptn/installer.  This repo has the cred.sav templates for building a creds.json file that the keptn CLI can use as an argument
 1. use the values we already captured in the ```2-enterInstallationScriptInputs.sh``` script to create the creds.json file
 1. run the ```keptn install -c=creds.json --platform=<Cluster>``` 
 1. run the 'Show Keptn' helper script
-
 
 ## 4) Install Dynatrace
 This will install the Dynatrace OneAgent Operator into your cluster.  The install will take 3-5 minutes to perform.
@@ -161,14 +158,20 @@ NOTE: Internally, this script will perform the following:
 1. run the ```/deploy/scripts/deployDynatraceOn<Platform>.sh``` script in the dynatrace-service folder
 1. run the 'Show Dynatrace' helper script
 
-
-## 5)  Expose Keptn's Bridge
+## 5) (optional) Expose Keptn's Bridge
 
 The [keptn’s bridge](https://keptn.sh/docs/0.4.0/reference/keptnsbridge/) provides an easy way to browse all events that are sent within keptn and to filter on a specific keptn context. When you access the keptn’s bridge, all keptn entry points will be listed in the left column. Please note that this list only represents the start of a deployment of a new artifact and, thus, more information on the executed steps can be revealed when you click on one event.
 
 <img src="images/bridge-empty.png" width="500"/>
 
 In the default installation of Keptn, the bridge is only accessible via `kubectl port-forward`. To make things easier for workshop participants, we will expose it by creating a oublic URL for this component.
+
+# Labs:
+* Onboarding the carts service: [Lab](./01_Onboarding_carts_service)
+* Deploying the carts service: [Lab](./02_Onboarding_carts_service)
+* View the carts service: [Lab](./03_Onboarding_carts_service)
+* Introducing quality gates: [Lab](./04_Onboarding_carts_service)
+* (optional) Runbook Automation and Self Healing: [Lab](./05_Onboarding_carts_service)
 
 # Onboarding the carts service
 
