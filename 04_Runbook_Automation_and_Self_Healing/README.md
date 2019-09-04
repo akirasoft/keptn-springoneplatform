@@ -203,3 +203,9 @@ To disable this feature:
     ```
     kubectl delete pod servicenow-service-XXXXX -n keptn
     ```
+
+---
+
+[Previous Step: Introducing quality gates](../03_Introducing_quality_gates) :arrow_backward: :arrow_forward:
+
+:arrow_up_small: [Back to overview](./)

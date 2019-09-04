@@ -37,13 +37,13 @@ To onboard the carts service, please follow these instructions:
 
 1. Since the `sockshop` project does not contain any services yet, it is time to onboard a service into the project. To onboard the `carts` service, execute the following command:
 
-    ```
+    ```console
     keptn onboard service --project=sockshop --values=values_carts.yaml
     ```
 
     To deploy the database, execute:
 
-    ```
+    ```console
     keptn onboard service --project=sockshop --values=values_carts_db.yaml --deployment=deployment_carts_db.yaml --service=service_carts_db.yaml
     ```
 
@@ -53,4 +53,4 @@ To onboard the carts service, please follow these instructions:
 
 :arrow_forward: [Next Lab: Deploying the carts service](../02_Deploying_the_carts_service)
 
-:arrow_up_small: [Back to overview](../)
+:arrow_up_small: [Back to overview](./)

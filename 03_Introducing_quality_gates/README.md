@@ -37,3 +37,9 @@ On the info homepage of the service, the **Version** should now be set to **v2**
 As soon as this version has been deployed into the `staging` environment, the `jmeter-service` will execute the performance tests for this service. When those are finished, the `pitometer-service` will evaluate them using Dynatrace as a data source. At this point, it will detect that the response time of the service is too high and mark the evaluation of the performance tests as `failed`.
 
 As a result, the new artifact will not be promoted into the `production` stage. Additionally, the traffic routing within the `staging` stage will be automatically updated in order to send requests to the previous version of the service. You can again verify that by navigating to the service homepage and inspecting the **Version** property. This should now be set to **v1** again.
+
+---
+
+[Previous Step: Deploying the carts service](../02_Deploying_the_carts_service) :arrow_backward: :arrow_forward: [Next Step: (optional) Runbook automation and self-healing](../04_Runbook_Automation_and_Self_Healing)
+
+:arrow_up_small: [Back to overview](./)

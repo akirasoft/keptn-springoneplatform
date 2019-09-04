@@ -32,6 +32,6 @@ Navigate to the URLs to inspect your carts service. In the production namespace,
 
 ---
 
-[Previous Step: Define Request Attributes](../02_Define_Request_Attributes) :arrow_backward: :arrow_forward: [Next Step: Define Performance Pipeline](../04_Define_Performance_Pipeline)
+[Previous Step: Onboarding carts service](../01_Onboarding_carts_service) :arrow_backward: :arrow_forward: [Next Step: Introducing quality gates](../03_Introducing_quality_gates)
 
-:arrow_up_small: [Back to overview](../)
+:arrow_up_small: [Back to overview](./)

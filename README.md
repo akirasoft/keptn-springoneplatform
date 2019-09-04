@@ -179,7 +179,7 @@ After provision the cluster and installing Keptn, we are now ready to explore to
 1. Onboarding the carts service: [Lab](./01_Onboarding_carts_service)
 1. Deploying the carts service: [Lab](./02_Deploying_the_carts_service)
 1. Introducing quality gates: [Lab](./03_Introducing_quality_gates)
-1. (optional) Runbook automation and self healing: [Lab](./04_Runbook_Automation_and_Self_Healing)
+1. (optional) Runbook automation and self-healing: [Lab](./04_Runbook_Automation_and_Self_Healing)
 
 # Keptn Community
 
