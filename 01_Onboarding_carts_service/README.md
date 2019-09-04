@@ -53,4 +53,4 @@ To onboard the carts service, please follow these instructions:
 
 :arrow_forward: [Next Lab: Deploying the carts service](../02_Deploying_the_carts_service)
 
-:arrow_up_small: [Back to overview](./)
+:arrow_up_small: [Back to overview](https://github.com/johannes-b/keptn-hackfest2019#overview)

@@ -42,4 +42,4 @@ As a result, the new artifact will not be promoted into the `production` stage. 
 
 [Previous Step: Deploying the carts service](../02_Deploying_the_carts_service) :arrow_backward: :arrow_forward: [Next Step: (optional) Runbook automation and self-healing](../04_Runbook_Automation_and_Self_Healing)
 
-:arrow_up_small: [Back to overview](./)
+:arrow_up_small: [Back to overview](https://github.com/johannes-b/keptn-hackfest2019#overview)

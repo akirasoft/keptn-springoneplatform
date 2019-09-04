@@ -20,9 +20,11 @@ To gain an overview of all services involved in the deployment/release of the se
 
 To make the carts service accesible from outside the cluster, and to support blue/green deployments, keptn automaticalliy creates Istio VirtualServices that direct requests to certain URLs to the correct service instance. You can retrieve the URLs for the carts service for each stage as follows:
 
-```
+```console
 echo http://carts.sockshop-dev.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
+
 echo http://carts.sockshop-staging.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
+
 echo http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 ```
 
@@ -34,4 +36,4 @@ Navigate to the URLs to inspect your carts service. In the production namespace,
 
 [Previous Step: Onboarding carts service](../01_Onboarding_carts_service) :arrow_backward: :arrow_forward: [Next Step: Introducing quality gates](../03_Introducing_quality_gates)
 
-:arrow_up_small: [Back to overview](./)
+:arrow_up_small: [Back to overview](https://github.com/johannes-b/keptn-hackfest2019#overview)
