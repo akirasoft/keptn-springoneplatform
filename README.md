@@ -16,7 +16,9 @@ In this workshop, you will get hands-on experience with the open source framewor
 
 ## 2. GitHub Organization
 
-* **GitHub Organization** - Keptn expects all the code repositories and project files to be in the same GitHub organization. You can create an organization using the instruction on [GitHub](https://github.com/organizations/new). 
+Keptn expects all the code repositories and project files to be in the same GitHub organization.
+
+* **GitHub Organization** -  You can create an organization using the instruction on [GitHub](https://github.com/organizations/new). 
 
     Suggested gihub organization name: ```<your last name>-keptn-hackfest-<cloud provider>```, e.g.: ```braeuer-keptn-hackfest-gcloud```
 
@@ -129,7 +131,7 @@ Cluster Zone (eg.us-east1-b)                            (current: CLUSTER_ZONE_P
 Cluster Region (eg.us-east1)                            (current: CLUSTER_REGION_PLACEHOLDER) :
 ```
 
-## 2) Provision Kubernetes cluster
+## 2) Provision Kubernetes Cluster
 
 This will provision a cluster on the specified cloud deployment type using the platforms CLI. This script will take several minutes to run and you can verify the cluster was created with the the cloud provider console.
 
@@ -150,7 +152,7 @@ This will install the Keptn control plane components into your cluster.  The ins
 </details>
 
 ## 4) Install Dynatrace
-This will install the Dynatrace OneAgent Operator into your cluster.  The install will take 3-5 minutes to perform.
+This will install the Dynatrace OneAgent Operator into your cluster.  The install will take **3-5 minutes** to perform.
 
 <details><summary>Details about this step</summary>
 
