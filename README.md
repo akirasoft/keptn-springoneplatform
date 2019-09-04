@@ -8,21 +8,23 @@ In this workshop, you will get hands-on experience with the open source framewor
 
 ## 1. Accounts
 
-1. **Dynatrace** - Create an account for a [trial Dynatrace SaaS tenant](https://www.dynatrace.com/trial) and created a PaaS and API token. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/)
-1. **GitHub** - A GitHub account is required and a personal access token with the permissions keptn expects. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/installation/setup-keptn-gke/)
-1. **Cloud provider account** - Highly recommend to sign up for personal free trial to have full admin rights and to not cause any issues with your enterprise account. Links to free trials:
+* **Dynatrace** - Create an account for a [trial Dynatrace SaaS tenant](https://www.dynatrace.com/trial) and created a PaaS and API token. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/).
+* **GitHub** - A GitHub account is required and a personal access token with the permissions keptn expects. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/installation/setup-keptn-gke/).
+* **Cloud provider account** - Highly recommend to sign up for personal free trial to have full admin rights and to not cause any issues with your enterprise account. Links to free trials:
    * [Google](https://cloud.google.com/free/)
    * [Azure](https://azure.microsoft.com/en-us/free/)
 
 ## 2. GitHub Organization
 
-Keptn expects all the code repositories and project files to be in the same GitHub organization. You can create an organization using the instruction on [GitHub](https://github.com/organizations/new). 
+* **GitHub Organization** - Keptn expects all the code repositories and project files to be in the same GitHub organization. You can create an organization using the instruction on [GitHub](https://github.com/organizations/new). 
 
-Suggested gihub organization name: ```<your last name>-keptn-hackfest-<cloud provider>```, e.g.: ```braeuer-keptn-hackfest-gcloud```
+    Suggested gihub organization name: ```<your last name>-keptn-hackfest-<cloud provider>```, e.g.: ```braeuer-keptn-hackfest-gcloud```
 
 ## 3. Tools
 
-In this workshop, we are going to use a pre-built Docker image that already has all required tools installed. The only requirement is that you have Docker installed on your machine. You can install it using the instructions on the [Docker Homepage](https://docs.docker.com/install/).
+In this workshop, we are going to use a pre-built Docker image that already has all required tools installed. The only requirement is that you have Docker installed on your machine. 
+
+* **Docker** - You can install it using the instructions on the [Docker homepage](https://docs.docker.com/install/).
 
 # Provision Cluster and Install Keptn
 
@@ -47,12 +49,12 @@ In this workshop, we are going to use a pre-built Docker image that already has 
 
     **Note:** The **Azure Subscription ID** can be found in your [Azure console](https://portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Billing/SubscriptionsBlade):
     <details><summary>Show screenshot</summary>
-    <img src="images/azure_subscription.png" width="500"/>
+    <img src="images/azure_subscription.png" width="100%"/>
     </details>
 
     **Note:** The **Google Project** can be found at the top bar of your [GCP console](https://console.cloud.google.com):
     <details><summary>Show screenshot</summary>
-    <img src="images/gcloud_project.png" width="500"/>
+    <img src="images/gcloud_project.png" width="100%"/>
     </details>
 
 1. To start the docker container you will use for this workshop, please execute:
@@ -75,12 +77,13 @@ In this workshop, we are going to use a pre-built Docker image that already has 
 
 1. When you are logged in you PaaS account, navigate to the `scripts` folder:
 
-    ```
+    ```console
     cd scripts
     ```
 
 1. Here you will find multiple scripts used for the setup and they must be run the right order.  Just run the setup script that will prompt you with menu choices.
-    ```
+
+    ```console
     ./setup.sh <deployment type>
     ```
     **Note**: Valid `deployment type` argument values are:
