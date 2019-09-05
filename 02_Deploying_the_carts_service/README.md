@@ -36,7 +36,7 @@ echo http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=
 
 Navigate to the URLs to inspect your carts service. In the production namespace, you should receive an output similar to this:
 
-<img src="images/carts-production.png" width="100%"/>
+<img src="images/carts-production.png" width="50%"/>
 
 ---
 

@@ -1,4 +1,7 @@
 # Keptn Lakeside HackFest 2019
+
+<img src="images/keptn.png" width="100%"/>
+
 Instructions for the workshop "Building unbreakable automated multi-stage pipelines with keptn" given @Lakeside Hackfest 2019
 
 # Overview
@@ -40,6 +43,7 @@ In this workshop, we are going to use a pre-built Docker image that already has 
     GitHub Personal Access Token:
     GitHub User Email:
     GitHub Organization:
+    PaaS Resource Prefix (e.g. lastname): 
     ======== Azure only =========
     Azure Subscription ID:
     Azure Location: francecentral
@@ -62,7 +66,7 @@ In this workshop, we are going to use a pre-built Docker image that already has 
 1. To start the docker container you will use for this workshop, please execute:
 
     ```console
-    docker run -d -t bacherfl/keptn-demo
+    docker run -d -t jbraeuer/keptn-demo
     ```
 
 1. Afterwards, you can SSH into this container. First, retrieve the `CONTAINER_ID` of the `keptn-demo` container. Then, use that ID to SSH into the container:
@@ -92,7 +96,7 @@ In this workshop, we are going to use a pre-built Docker image that already has 
     * gke = Google
     * aks = Azure
 
-    The setup menu should look like this:
+    The setup menu looks as follows:
     ```
     ====================================================
     SETUP MENU for Azure AKS
@@ -125,6 +129,7 @@ GitHub User Name                                        (current: GITHUB_USER_NA
 GitHub Personal Access Token                            (current: PERSONAL_ACCESS_TOKEN_PLACEHOLDER) : 
 GitHub User Email                                       (current: GITHUB_USER_EMAIL_PLACEHOLDER) : 
 GitHub Organization                                     (current: GITHUB_ORG_PLACEHOLDER) : 
+PaaS Resource Prefix (e.g. lastname)   (current: RESOURCE_PREFIX_PLACEHOLDER) :
 Google Project                                          (current: GKE_PROJECT_PLACEHOLDER) : 
 Cluster Name                                            (current: CLUSTER_NAME_PLACEHOLDER) : 
 Cluster Zone (eg.us-east1-b)                            (current: CLUSTER_ZONE_PLACEHOLDER) : 
@@ -184,3 +189,7 @@ After provision the cluster and installing Keptn, we are now ready to explore to
 # Keptn Community
 
 Join the Keptn community!
+
+[Keptn](keptn.sh) is an open-source project with the goal to build an enterprise-grade framework for shipping and running cloud-native applications. Find more information on [GitHub](https://github.com/keptn/keptn) or on the keptn website. 
+
+**Feel free to contribute or reach out to the keptn team using a channel provided [here](https://github.com/keptn/community)**

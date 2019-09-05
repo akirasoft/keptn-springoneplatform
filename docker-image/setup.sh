@@ -21,7 +21,7 @@ echo "5)  Expose Keptn's Bridge"
 echo "----------------------------------------------------"
 echo "99) Delete Kubernetes cluster"
 echo "===================================================="
-echo "Please enter your choice or <q> or <return> to exit"
+echo "Please enter your choice or <q> or <return> to exit:"
 read opt
 }
 
