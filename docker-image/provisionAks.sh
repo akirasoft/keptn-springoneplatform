@@ -8,10 +8,10 @@ AKS_VERSION=1.12.8
 AKS_NODE_SIZE=Standard_B4ms
 
 # derived values
-CLUSTER_NAME="$RESOURCE_PREFIX"-keptn-orders-cluster
-AKS_RESOURCEGROUP="$RESOURCE_PREFIX"-keptn-orders-group
-AKS_DEPLOYMENTNAME="$RESOURCE_PREFIX"-keptn-orders-deployment
-AKS_SERVICE_PRINCIPAL="$RESOURCE_PREFIX"-keptn-orders-sp
+CLUSTER_NAME="$RESOURCE_PREFIX"-keptn-hackfest-cluster
+AKS_RESOURCEGROUP="$RESOURCE_PREFIX"-keptn-hackfest-group
+AKS_DEPLOYMENTNAME="$RESOURCE_PREFIX"-keptn-hackfest-deployment
+AKS_SERVICE_PRINCIPAL="$RESOURCE_PREFIX"-keptn-hackfest-sp
 
 echo "===================================================="
 echo "About to provision Azure Resources with these inputs: "

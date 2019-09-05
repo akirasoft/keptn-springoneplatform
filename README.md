@@ -1,6 +1,6 @@
 <img src="images/keptn.png" width="100%"/>
 
-*Instructions for the workshop **Building unbreakable automated multi-stage pipelines with keptn** given @[Lakeside Hackfest 2019](https://www.lakeside-hackfest.com/)*
+*Instructions **Building unbreakable automated multi-stage pipelines with keptn** workshop given @[Lakeside Hackfest 2019](https://www.lakeside-hackfest.com/)*
 
 # Overview
 In this workshop, you will get hands-on experience with the open source framework [keptn](https://keptn.sh) and see how it can help you to manage your cloud-native applications on Kubernetes.
@@ -71,6 +71,9 @@ In this workshop, we are going to use a pre-built Docker image that already has 
 
     ```console
     docker ps
+    ```
+    
+    ```console
     docker exec -it <CONTAINER_ID> /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
     ```
 
@@ -127,7 +130,7 @@ GitHub User Name                                        (current: GITHUB_USER_NA
 GitHub Personal Access Token                            (current: PERSONAL_ACCESS_TOKEN_PLACEHOLDER) : 
 GitHub User Email                                       (current: GITHUB_USER_EMAIL_PLACEHOLDER) : 
 GitHub Organization                                     (current: GITHUB_ORG_PLACEHOLDER) : 
-PaaS Resource Prefix (e.g. lastname)   (current: RESOURCE_PREFIX_PLACEHOLDER) :
+PaaS Resource Prefix (e.g. lastname)                    (current: RESOURCE_PREFIX_PLACEHOLDER) :
 Google Project                                          (current: GKE_PROJECT_PLACEHOLDER) : 
 Cluster Name                                            (current: CLUSTER_NAME_PLACEHOLDER) : 
 Cluster Zone (eg.us-east1-b)                            (current: CLUSTER_ZONE_PLACEHOLDER) : 

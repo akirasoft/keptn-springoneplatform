@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RESOURCE_PREFIX=$(cat creds.json | jq -r '.resourcePrefix')
-CLUSTER_NAME="$RESOURCE_PREFIX"-keptn-orders-cluster
+CLUSTER_NAME="$RESOURCE_PREFIX"-keptn-hackfest-cluster
 CLUSTER_ZONE=$(cat creds.json | jq -r '.gkeClusterZone')
 CLUSTER_REGION=$(cat creds.json | jq -r '.gkeClusterRegion')
 GKE_PROJECT=$(cat creds.json | jq -r '.gkeProject')

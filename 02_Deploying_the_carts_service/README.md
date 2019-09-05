@@ -28,9 +28,13 @@ To make the carts service accesible from outside the cluster and to support blue
 
 ```console
 echo http://carts.sockshop-dev.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
+```
 
+```console
 echo http://carts.sockshop-staging.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
+```
 
+```console
 echo http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 ```
 

@@ -12,9 +12,7 @@ To onboard the carts service, please follow these instructions:
     cd /usr/keptn/keptn-hackfest2019
     ```
 
-1. Go to https://github.com/keptn-sockshop/carts and click on the **Fork** button on the top right corner.
-
-1. Select the GitHub organization you use for this keptn workshop.
+1. Go to https://github.com/keptn-sockshop/carts and click on the **Fork** button on the top right corner. Select the GitHub organization you use for this keptn workshop.
 
 1. Clone the forked carts service to your running docker container. Please note that you have to use **your** own GitHub organization.
 

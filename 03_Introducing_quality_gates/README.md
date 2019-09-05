@@ -8,16 +8,29 @@ After forking the `carts` repository into your organization, the `perfspec` dire
   - `perfspec_dynatrace.json`
   - `perfspec_prometheus.json`
 
-In this workshop, we will be using Dynatrace to retrieve metrics. Thus, to enable the Dynatrace quality gates, please rename `perfspec_dynatrace.json` to `perfspec.json`, and commit/push your changes to the repository. To do so, either execute the following commands on your machine, or rename the file directly within the GitHub UI.
+In this workshop, we will be using Dynatrace to retrieve metrics. Thus, to enable the Dynatrace quality gates, please rename `perfspec_dynatrace.json` to `perfspec.json` in your carts repository. Therefore, use the GitHub UI.
 
+<!--
   ```console
-  cd /usr/keptn/keptn-hackfest2019/carts
+  cd /usr/keptn/keptn-hackfest2019/carts/perfspec
+  ```
+  
+  ```console
   mv perfspec_dynatrace.json perfspec.json
+  ```
+  
+  ```console
   git add .
+  ```
+  
+  ```console
   git commit -m "Enabled quality gates using dynatrace"
-  git push
   ```
 
+  ```console
+  git push
+  ```
+--> 
 Now, your carts service will only be promoted into production if it adheres to the quality gates (response time < 1s) specified in the `perfspec.json` file.
 
 # Deployment of a slow implementation of the carts service
