@@ -5,6 +5,8 @@
 # Overview
 In this workshop, you will get hands-on experience with the open source framework [keptn](https://keptn.sh) and see how it can help you to manage your cloud-native applications on Kubernetes.
 
+1. For a great workshop experience, we ask you to keep track of your completed tasks. Therefore, please open this [spreadsheet](https://docs.google.com/spreadsheets/d/1D03FD_-yINTcGGzYcKH4_ES2t1skyZrV18O9mSyR3g0/edit?usp=sharing) and enter your name.
+
 # Pre-requisites
 
 ## 1. Accounts
