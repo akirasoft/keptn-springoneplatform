@@ -1,6 +1,6 @@
 # Introducing quality gates
 
-Since you have already set up your cluster to be monitored by Dynatrace, keptn can use its information to evaluate performance tests and to decide wether an artifact should be promoted, based on quality gates. **Quality gates** allow you to define limits for certain metrics (such as the response time of a service) that must not be exceeded by a service. If these criteria are met, an artifact will be allowed to proceed to the nest stage, otherwise the deployment will be rolled back automatically. 
+Since you have already set up your cluster to be monitored by Dynatrace, Keptn can use its information to evaluate performance tests and to decide wether an artifact should be promoted, based on quality gates. **Quality gates** allow you to define limits for certain metrics (such as the response time of a service) that must not be exceeded by a service. If these criteria are met, an artifact will be allowed to proceed to the nest stage, otherwise the deployment will be rolled back automatically. 
 
 You can specify quality gates in a file called `perfspec/perfspec.json` within the code repository of the respective service (`carts` in our case).
 After forking the `carts` repository into your organization, the `perfspec` directory within that repository contains two files:

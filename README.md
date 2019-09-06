@@ -10,7 +10,7 @@ In this workshop, you will get hands-on experience with the open source framewor
 ## 1. Accounts
 
 * **Dynatrace** - Create an account for a [trial Dynatrace SaaS tenant](https://www.dynatrace.com/trial) and created a PaaS and API token. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/).
-* **GitHub** - A GitHub account is required and a personal access token with the permissions keptn expects. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/installation/setup-keptn-gke/).
+* **GitHub** - A GitHub account is required and a personal access token with the permissions Keptn expects. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/installation/setup-keptn-gke/).
 * **Cloud provider account** - Highly recommend to sign up for personal free trial to have full admin rights and to not cause any issues with your enterprise account. Links to free trials:
    * [Google](https://cloud.google.com/free/)
    * [Azure](https://azure.microsoft.com/en-us/free/)
@@ -36,7 +36,7 @@ In this workshop, we are going to use a pre-built Docker image that already has 
 
 # Provision Cluster and Install Keptn
 
-1. Now, it's time to set up your workshop environment. During the setup, you will need the following values. We recommend to copy the following lines into an editor, fill them out and keep them as a reference for later:
+1. Now, it's time to set up your workshop environment. During the setup, you will need the following values. We recommend copying the following lines into an editor, fill them out and keep them as a reference for later:
 
     ```
     Dynatrace Host Name (e.g. abc12345.live.dynatrace.com):
@@ -157,7 +157,7 @@ The install will take **5-10 minutes** to perform.
 <details><summary>Details about this step</summary>
 
 **Note**: Internally, this script will perform the following:
-1. Clone https://github.com/keptn/installer.  This repo has the cred.sav templates for building a creds.json file that the keptn CLI can use as an argument
+1. Clone https://github.com/keptn/installer.  This repo has the cred.sav templates for building a creds.json file that the Keptn CLI can use as an argument
 1. Use the values we already captured in the ```2-enterInstallationScriptInputs.sh``` script to create the creds.json file
 1. Run the ```keptn install -c=creds.json --platform=<Cluster>``` 
 1. Run the `Show Keptn` helper script
@@ -181,7 +181,7 @@ The install will take **3-5 minutes** to perform.
 
 ## 5) Expose Keptn's Bridge
 
-The [Keptn’s bridge](https://keptn.sh/docs/0.4.0/reference/keptnsbridge/) provides an easy way to browse all events that are sent within keptn and to filter on a specific keptn context. When you access the keptn’s bridge, all keptn entry points will be listed in the left column. Please note that this list only represents the start of a deployment of a new artifact. Thus, more information on the executed steps can be revealed when you click on one event.
+The [Keptn’s bridge](https://keptn.sh/docs/0.4.0/reference/keptnsbridge/) provides an easy way to browse all events that are sent within Keptn and to filter on a specific Keptn context. When you access the keptn’s bridge, all Keptn entry points will be listed in the left column. Please note that this list only represents the start of a deployment of a new artifact. Thus, more information on the executed steps can be revealed when you click on one event.
 
 <img src="images/bridge-empty.png" width="500"/>
 
@@ -202,4 +202,4 @@ Join the Keptn community!
 
 Further information about Keptn you can find on the [keptn.sh](keptn.sh) website. Keptn itself lives on [GitHub](https://github.com/keptn/keptn).
 
-**Feel free to contribute or reach out to the keptn team using a channel provided [here](https://github.com/keptn/community)**.
+**Feel free to contribute or reach out to the Keptn team using a channel provided [here](https://github.com/keptn/community)**.

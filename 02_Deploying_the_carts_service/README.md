@@ -1,6 +1,6 @@
 # Deploying the carts service
 
-To deploy the service into your Kubernetes cluster, you can use the keptn CLI to trigger a new deployment. 
+To deploy the service into your Kubernetes cluster, you can use the Keptn CLI to trigger a new deployment. 
 
 To do so, please execute the following command:
 
@@ -8,7 +8,7 @@ To do so, please execute the following command:
 keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.8.1
 ```
 
-This will inform keptn about the availability of a new artifact (`keptnexamples/carts:0.8.1`). As a result, keptn will trigger a multi-stage deployment of that service. During the deployment of the service, a number of various different services that are responsible for different tasks are involved, such as:
+This will inform Keptn about the availability of a new artifact (`keptnexamples/carts:0.8.1`). As a result, Keptn will trigger a multi-stage deployment of that service. During the deployment of the service, a number of various different services that are responsible for different tasks are involved, such as:
 
   - **github-service**: This service modifies the configuration stored in the repository in order to specify the desired image for the carrts service to be deployed (in that case `keptnexamples/carts:0.8.1`).
 
@@ -24,7 +24,7 @@ To gain an overview of all services involved in the deployment/release of the se
 
 # View the carts service
 
-To make the carts service accesible from outside the cluster and to support blue/green deployments, keptn automaticalliy creates **Istio** VirtualServices that direct requests to certain URLs to the correct service instance. You can retrieve the URLs for the carts service for each stage as follows:
+To make the carts service accesible from outside the cluster and to support blue/green deployments, Keptn automaticalliy creates **Istio** VirtualServices that direct requests to certain URLs to the correct service instance. You can retrieve the URLs for the carts service for each stage as follows:
 
 ```console
 echo http://carts.sockshop-dev.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
