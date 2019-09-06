@@ -8,16 +8,10 @@ To onboard the carts service, please follow these instructions:
 
 1. In the docker container, quit the setup script you were using to setup the infrastructure.
 
-1. Navigate to the workshop directory:
+1. Navigate to the `keptn-onboarding` in the workshop directory:
     
     ```console
-    cd /usr/keptn/keptn-hackfest2019
-    ```
-
-1. Change into the `keptn-onboarding` directory:
-
-    ```console
-    cd keptn-onboarding
+    cd /usr/keptn/keptn-hackfest2019/keptn-onboarding
     ```
 
 1. Create the `sockshop` project, according to the provided *shipyard* file:
