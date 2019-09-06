@@ -8,13 +8,15 @@ Configuration changes during runtime are sometimes necessary to increase flexibi
 
 - ServiceNow instance or [free ServiceNow developer instance](https://developer.servicenow.com) 
 
-    - **Note:** Use case tested on [ServiceNow London](https://docs.servicenow.com/category/london) and [ServiceNow Madrid](https://docs.servicenow.com/category/london) releases
+    - **Note:** Use case is tested on [ServiceNow London](https://docs.servicenow.com/category/london) and [ServiceNow Madrid](https://docs.servicenow.com/category/london) releases
 
 - On your **local machine**, clone the GitHub repository with the necessary files for the use case:
   
   ```console
   git clone --branch 0.1.3 https://github.com/keptn/servicenow-service.git --single-branch
+  ```
 
+  ```console
   cd servicenow-service
   ```
 
@@ -22,11 +24,11 @@ Configuration changes during runtime are sometimes necessary to increase flexibi
 
 In order for keptn to use both ServiceNow and Dynatrace, the corresponding credentials have to be stored as Kubernetes secrets in the cluster. 
 
-1. Dynatrace secret: 
+1. **Dynatrace secret** 
 
     This has already been setup at the beginning of the workshop.
 
-2. ServiceNow secret: 
+2. **ServiceNow secret** 
 
     Create the ServiceNow secret to allow keptn to create/update incidents in ServiceNow and run workflows. For the command below, use your ServiceNow tenant id (8-digits), your ServiceNow user (e.g., *admin*) as user, and your ServiceNow password as token:
 
@@ -36,7 +38,7 @@ In order for keptn to use both ServiceNow and Dynatrace, the corresponding crede
 
     Please note that if your ServiceNow password has some special characters in it, you need to [escape them](https://kubernetes.io/docs/concepts/configuration/secret/).
 
-## Setup the workflow in ServiceNow
+## Setup ServiceNow workflow
 
 A ServiceNow *Update Set* is provided to run this use case. To install the *Update Set* follow these steps:
 
@@ -72,7 +74,7 @@ A ServiceNow *Update Set* is provided to run this use case. To install the *Upda
     - Open the workflow by clicking on it. It will look similar to the following image. By clicking on the workflow notes you can further investigate each step of the workflow.
     <img src="images/runbook-automation/assets/service-now-keptn-workflow.png" width="500"/>
 
-## (optional): Verify Dynatrace problem notification
+## (optional) Verify Dynatrace problem notification
 
 During the [setup of Dynatrace](../../monitoring/dynatrace) a problem notification has already been set up for you. You can verify the correct setup by following the instructions: 
 
@@ -139,7 +141,7 @@ Now, all pieces are in place to run the use case. Therefore, we will start by ge
 
 1. Open another terminal to make sure the load generation is still running and again, navigate to the _servicenow-service/usecase_ folder.
 
-1. _(Optional:)_ Verify that the environment variables you set earlier are still available:
+1. _(optional)_ Verify that the environment variables you set earlier are still available:
 
     ```console
     echo $DT_TENANT
@@ -210,16 +212,15 @@ To disable this feature:
 
 - In ServiceNow you can take a look at the **System Log** > **All** to verify which actions have been executed. You should be able to see some logs on the execution of the keptn demo workflow as shown in the screenshot:
 
-<img src="images/runbook-automation/assets/service-now-systemlog.png" width="500"/>
+    <img src="images/runbook-automation/assets/service-now-systemlog.png" width="500"/>
 
 - In case Dynatrace detected a problem before the [ServiceNow secret was created](#servicenow-secret) in your Kubernetes cluster, the remediation will not work. Resolution:
 
-    1. [Create the secret](#servicenow-secret).
-    1. Restart the pod.
-    
-    ```console
-    kubectl delete pod servicenow-service-XXXXX -n keptn
-    ```
+    1. [Create the secret](#servicenow-secret)
+    1. Restart the pod:
+        ```console
+        kubectl delete pod servicenow-service-XXXXX -n keptn
+        ```
 ---
 
 [Previous Step: Introducing quality gates](../03_Introducing_quality_gates) :arrow_backward: :arrow_forward:

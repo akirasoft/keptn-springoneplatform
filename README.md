@@ -150,7 +150,9 @@ The cluster will take **5-10 minutes** to provision.
 
 ## 3) Install Keptn
 
-This will install the Keptn control plane components into your cluster, using the **Keptn CLI**: `keptn install -c=creds.json --platform=<Cluster>` The install will take **5-10 minutes** to perform.
+This will install the Keptn control plane components into your cluster, using the **Keptn CLI**: `keptn install -c=creds.json --platform=<Cluster>` 
+
+The install will take **5-10 minutes** to perform.
 
 <details><summary>Details about this step</summary>
 
@@ -163,7 +165,9 @@ This will install the Keptn control plane components into your cluster, using th
 </details>
 
 ## 4) Install Dynatrace
-This will install the Dynatrace OneAgent Operator into your cluster.  The install will take **3-5 minutes** to perform.
+This will install the Dynatrace OneAgent Operator into your cluster.
+
+The install will take **3-5 minutes** to perform.
 
 <details><summary>Details about this step</summary>
 

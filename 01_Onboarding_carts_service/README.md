@@ -4,7 +4,9 @@ Now that your environment is up and running and monitored by Dynatrace, you can 
 
 To onboard the carts service, please follow these instructions:
 
-1. Quit the setup script you were using to setup the infrastructure.
+1. Go to https://github.com/keptn-sockshop/carts and click the **Fork** button on the top right corner. Select the GitHub organization you created for this workshop.
+
+1. In the docker container, quit the setup script you were using to setup the infrastructure.
 
 1. Navigate to the workshop directory:
     
@@ -12,14 +14,6 @@ To onboard the carts service, please follow these instructions:
     cd /usr/keptn/keptn-hackfest2019
     ```
 
-1. Go to https://github.com/keptn-sockshop/carts and click on the **Fork** button on the top right corner. Select the GitHub organization you use for this keptn workshop.
-
-1. Clone the forked carts service to your running docker container. Please note that you have to use **your** own GitHub organization.
-
-    ```console
-    git clone https://github.com/your-github-org/carts.git
-    ```
-    
 1. Change into the `keptn-onboarding` directory:
 
     ```console
@@ -40,13 +34,15 @@ To onboard the carts service, please follow these instructions:
     keptn onboard service --project=sockshop --values=values_carts.yaml
     ```
 
-    To deploy the database, execute:
+1. Go to your GitHub organization and take a look into the configuration repository. For example, select the *staging* branch and go to `helm-chart/templates/`. 
+
+1. Finally, onboard the database by executing:
 
     ```console
     keptn onboard service --project=sockshop --values=values_carts_db.yaml --deployment=deployment_carts_db.yaml --service=service_carts_db.yaml
     ```
 
-    Now, your configuration repository contains all the information needed to deploy your application and even supports blue/green deployments for two of the environments (staging and production).
+Now, your configuration repository contains all the information needed to deploy your application and even supports blue/green deployments for two of the environments (staging and production).
 
 ---
 
