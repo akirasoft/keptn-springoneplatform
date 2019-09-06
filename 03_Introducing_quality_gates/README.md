@@ -13,7 +13,7 @@ In this workshop, we will be using Dynatrace to retrieve metrics. Thus, to enabl
 1. In **your** own GitHub organization, go to the forked carts repository:
 
     ```console
-    https://github.com/your-github-org/carts.git
+    https://github.com/your-github-org/carts
     ```
 
 1. There you find the folder `perfspec`. Go into this folder and click on `perfspec_dynatrace.json`.

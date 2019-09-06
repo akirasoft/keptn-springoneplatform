@@ -159,10 +159,9 @@ The install will take **5-10 minutes** to perform.
 <details><summary>Details about this step</summary>
 
 **Note**: Internally, this script will perform the following:
-1. Clone https://github.com/keptn/installer.  This repo has the cred.sav templates for building a creds.json file that the Keptn CLI can use as an argument
-1. Use the values we already captured in the ```2-enterInstallationScriptInputs.sh``` script to create the creds.json file
-1. Run the ```keptn install -c=creds.json --platform=<Cluster>``` 
-1. Run the `Show Keptn` helper script
+1. Clones https://github.com/keptn/installer.  This repo has the cred.sav templates for building a creds.json file that the Keptn CLI can use as an argument
+1. Uses the values we already captured in the ```2-enterInstallationScriptInputs.sh``` script to create the creds.json file
+1. Runs the ```keptn install -c=creds.json --platform=<Cluster>``` 
 
 </details>
 
@@ -174,10 +173,9 @@ The install will take **3-5 minutes** to perform.
 <details><summary>Details about this step</summary>
 
 **Note**: Internally, this script will perform the following:
-1. Clone https://github.com/keptn/dynatrace-service. This repo has scripts for each platform to install the Dyntrace OneAgent Operator and the cred_dt.sav template for building a creds_dt.json file that the install script expects to read
-1. Use the values we already captured in the ```1-enterInstallationScriptInputs.sh``` script to create the creds_dt.json file
-1. Run the ```/deploy/scripts/deployDynatraceOn<Platform>.sh``` script in the dynatrace-service folder
-1. Run the `Show Dynatrace` helper script
+1. Clones https://github.com/keptn/dynatrace-service. This repo has scripts for each platform to install the Dyntrace OneAgent Operator and the cred_dt.sav template for building a creds_dt.json file that the install script expects to read
+1. Uses the values we already captured in the ```1-enterInstallationScriptInputs.sh``` script to create the creds_dt.json file
+1. Runs the ```/deploy/scripts/deployDynatraceOn<Platform>.sh``` script in the dynatrace-service folder
 
 </details>
 
