@@ -150,7 +150,7 @@ The cluster will take **5-10 minutes** to provision.
 
 ## 3) Install Keptn
 
-This will install the Keptn control plane components into your cluster.  The install will take **5-10 minutes** to perform.
+This will install the Keptn control plane components into your cluster, using the **Keptn CLI**: `keptn install -c=creds.json --platform=<Cluster>` The install will take **5-10 minutes** to perform.
 
 <details><summary>Details about this step</summary>
 
@@ -196,6 +196,6 @@ After provision the cluster and installing Keptn, we are now ready to explore to
 
 Join the Keptn community!
 
-[Keptn](keptn.sh) is an open-source project with the goal to build an enterprise-grade framework for shipping and running cloud-native applications. Find more information on [GitHub](https://github.com/keptn/keptn) or on the keptn website. 
+Further information about Keptn you can find on the [keptn.sh](keptn.sh) website. Keptn itself lives on [GitHub](https://github.com/keptn/keptn).
 
-**Feel free to contribute or reach out to the keptn team using a channel provided [here](https://github.com/keptn/community)**
+**Feel free to contribute or reach out to the keptn team using a channel provided [here](https://github.com/keptn/community)**.

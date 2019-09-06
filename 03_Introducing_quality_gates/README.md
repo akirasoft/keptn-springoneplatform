@@ -8,30 +8,27 @@ After forking the `carts` repository into your organization, the `perfspec` dire
   - `perfspec_dynatrace.json`
   - `perfspec_prometheus.json`
 
-In this workshop, we will be using Dynatrace to retrieve metrics. Thus, to enable the Dynatrace quality gates, please rename `perfspec_dynatrace.json` to `perfspec.json` in your carts repository. Therefore, use the GitHub UI.
+In this workshop, we will be using Dynatrace to retrieve metrics. Thus, to enable the Dynatrace quality gates, please rename `perfspec_dynatrace.json` to `perfspec.json` in your carts repository using the GitHub UI.
 
-<!--
-  ```console
-  cd /usr/keptn/keptn-hackfest2019/carts/perfspec
-  ```
-  
-  ```console
-  mv perfspec_dynatrace.json perfspec.json
-  ```
-  
-  ```console
-  git add .
-  ```
-  
-  ```console
-  git commit -m "Enabled quality gates using dynatrace"
-  ```
+1. In **your** own GitHub organization, go to the forked carts repository:
 
-  ```console
-  git push
-  ```
---> 
-Now, your carts service will only be promoted into production if it adheres to the quality gates (response time < 1s) specified in the `perfspec.json` file.
+    ```console
+    https://github.com/your-github-org/carts.git
+    ```
+
+1. There you find the folder `perfspec`. Go into this folder and click on `perfspec_dynatrace.json`.
+
+1. Then click on the `Edit this file` button as shown below:
+    <details><summary>Edit this file</summary>
+    <img src="images/edit_file.png" width="100%"/>
+    </details>
+
+1. (1) Rename the file from `perfspec_dynatrace.json` to `perfspec.json` and (2) click on the green **Commit changes** button. 
+    <details><summary>Renaming file and commit changes</summary>
+    <img src="images/renaming_file.png" width="100%"/>
+    </details>
+
+Now, you have successfully activated the quality gate and your carts service will only be promoted into production if it adheres to the quality gates (response time < 1s) specified in the `perfspec.json` file.
 
 # Deployment of a slow implementation of the carts service
 
@@ -52,6 +49,20 @@ On the info homepage of the service, the **Version** should now be set to **v2**
 As soon as this version has been deployed into the `staging` environment, the `jmeter-service` will execute the performance tests for this service. When those are finished, the `pitometer-service` will evaluate them using Dynatrace as a data source. At this point, it will detect that the response time of the service is too high and mark the evaluation of the performance tests as `failed`.
 
 As a result, the new artifact will not be promoted into the `production` stage. Additionally, the traffic routing within the `staging` stage will be automatically updated in order to send requests to the previous version of the service. You can again verify that by navigating to the service homepage and inspecting the **Version** property. This should now be set to **v1** again.
+
+# Deployment of a bug fix of the slow implementation of the carts service
+
+To demonstrate that the quality gate opens and allows promoting a version into production, which adheres to the quality objectives, we will now deploy a new version of the carts service (**version 0.8.3**). This version has fixed the slowdown.
+
+  ```console
+  keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.8.3
+  ```
+
+As a result, the new artifact will be promoted into the `production` stage. Please follow the logs in the Keptn's bridge to verify that:
+
+<details><summary>Keptn's bridge with carts 0.8.3</summary>
+<img src="images/keptn_bridge.png" width="100%"/>
+</details>
 
 ---
 
