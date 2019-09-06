@@ -1,6 +1,6 @@
 <img src="images/keptn.png" width="100%"/>
 
-*Instructions **Building unbreakable automated multi-stage pipelines with keptn** workshop given @[Lakeside Hackfest 2019](https://www.lakeside-hackfest.com/)*
+**Building unbreakable automated multi-stage pipelines with keptn** workshop given @[Lakeside Hackfest 2019](https://www.lakeside-hackfest.com/)
 
 # Overview
 In this workshop, you will get hands-on experience with the open source framework [keptn](https://keptn.sh) and see how it can help you to manage your cloud-native applications on Kubernetes.
@@ -25,9 +25,14 @@ Keptn expects all the code repositories and project files to be in the same GitH
 
 ## 3. Tools
 
-In this workshop, we are going to use a pre-built Docker image that already has all required tools installed. The only requirement is that you have Docker installed on your machine. 
+In this workshop, we are going to use a pre-built Docker image that already has all required tools installed. The only requirement is that you have Docker installed on your machine, or you can use the Google Cloud Shell if you have a Google account.  
 
-* **Docker** - You can install it using the instructions on the [Docker homepage](https://docs.docker.com/install/).
+* **Option A: Docker local** - You can install Docker using the instructions on the [Docker homepage](https://docs.docker.com/install/).
+
+* **Option B: Docker in Google Cloud Shell** - Just go to [Google Cloud](https://console.cloud.google.com) and activate Cloud Shell as shown below:
+    <details><summary>Activate Cloud Shell</summary>
+    <img src="images/cloud_shell.png" width="100%"/>
+    </details>
 
 # Provision Cluster and Install Keptn
 
@@ -72,7 +77,7 @@ In this workshop, we are going to use a pre-built Docker image that already has 
     ```console
     docker ps
     ```
-    
+
     ```console
     docker exec -it <CONTAINER_ID> /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
     ```
