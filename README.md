@@ -11,9 +11,9 @@ In this workshop, you will get hands-on experience with the open source framewor
 
 ## 1. Accounts
 
-* **Dynatrace** - Create an account for a [trial Dynatrace SaaS tenant](https://www.dynatrace.com/trial) and created a PaaS and API token. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/).
+* **Dynatrace** - Create an account for a [trial Dynatrace SaaS tenant](https://www.dynatrace.com/trial) and create a PaaS and API token. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/).
 * **GitHub** - A GitHub account is required and a personal access token with the permissions Keptn expects. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/installation/setup-keptn-gke/).
-* **Cloud provider account** - Highly recommend to sign up for personal free trial to have full admin rights and to not cause any issues with your enterprise account. Links to free trials:
+* **Cloud provider account** - Highly recommended to sign up for personal free trial to have full admin rights and to not cause any issues with your enterprise account. Links to free trials:
    * [Google](https://cloud.google.com/free/)
    * [Azure](https://azure.microsoft.com/en-us/free/)
 
@@ -124,7 +124,7 @@ In this workshop, we are going to use a pre-built Docker image that already has 
 
 Before you do this step, be prepared with your GitHub credentials, Dynatrace tokens, and Cloud provider project information available.
 
-This will prompt you for values that are referenced in the remaining setup scripts. Inputted values are stored in `creds.json` file. For example, on GKE the menus looks like:
+This will prompt you for values that are referenced in the remaining setup scripts. Inputted values are stored in `creds.json` file. For example, on GKE the menu looks like:
 
 ```
 ===================================================================
@@ -146,13 +146,13 @@ Cluster Region (eg.us-east1)                            (current: CLUSTER_REGION
 
 ## 2) Provision Kubernetes Cluster
 
-This will provision a cluster on the specified cloud deployment type using the platforms CLI. This script will take several minutes to run and you can verify the cluster was created with the the cloud provider console.
+This will provision a cluster on the specified cloud deployment type using the platforms CLI. This script will take several minutes to run and you can verify afterwards if the cluster was created with the cloud provider console.
 
 The cluster will take **5-10 minutes** to provision.
 
 ## 3) Install Keptn
 
-This will install the Keptn control plane components into your cluster, using the **Keptn CLI**: `keptn install -c=creds.json --platform=<Cluster>` 
+This will install the Keptn control plane components into your cluster, using the **Keptn CLI**: `keptn install -c=creds.json --platform=<Cluster>`
 
 The install will take **5-10 minutes** to perform.
 
