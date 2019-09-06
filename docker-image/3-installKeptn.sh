@@ -40,14 +40,14 @@ GITHUB_USER_NAME=$(cat $SOURCE_CREDS_FILE | jq -r '.githubUserName')
 GITHUB_USER_EMAIL=$(cat $SOURCE_CREDS_FILE | jq -r '.githubUserEmail')
 GITHUB_ORGANIZATION=$(cat $SOURCE_CREDS_FILE | jq -r '.githubOrg')
 RESOURCE_PREFIX=$(cat creds.json | jq -r '.resourcePrefix')
-CLUSTER_NAME="$RESOURCE_PREFIX"-keptn-orders-cluster
+CLUSTER_NAME="$RESOURCE_PREFIX"-keptn-hackfest-cluster
 
 # GKE
 GKE_PROJECT=$(cat $SOURCE_CREDS_FILE | jq -r '.gkeProject')
 GKE_CLUSTER_ZONE=$(cat $SOURCE_CREDS_FILE | jq -r '.gkeClusterZone')
 GKE_CLUSTER_REGION=$(cat $SOURCE_CREDS_FILE | jq -r '.gkeClusterRegion')
 # AKS
-AKS_RESOURCEGROUP="$RESOURCE_PREFIX"-keptn-orders-group
+AKS_RESOURCEGROUP="$RESOURCE_PREFIX"-keptn-hackfest-group
 AKS_SUBSCRIPTION_ID=$(cat $SOURCE_CREDS_FILE | jq -r '.aksSubscriptionId')
 # EKS
 EKS_CLUSTER_REGION=$(cat $SOURCE_CREDS_FILE | jq -r '.eksClusterRegion')

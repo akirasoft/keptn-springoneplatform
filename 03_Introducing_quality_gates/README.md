@@ -50,7 +50,7 @@ As soon as this version has been deployed into the `staging` environment, the `j
 
 As a result, the new artifact will not be promoted into the `production` stage. Additionally, the traffic routing within the `staging` stage will be automatically updated in order to send requests to the previous version of the service. You can again verify that by navigating to the service homepage and inspecting the **Version** property. This should now be set to **v1** again.
 
-# Deployment of a bug fix of the slow implementation of the carts service
+# Deployment of a carts version without the slowdown
 
 To demonstrate that the quality gate opens and allows promoting a version into production, which adheres to the quality objectives, we will now deploy a new version of the carts service (**version 0.8.3**). This version has fixed the slowdown.
 

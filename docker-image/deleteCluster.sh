@@ -6,7 +6,7 @@ DEPLOYMENT=$1
 validate_deployment_argument $DEPLOYMENT
 
 RESOURCE_PREFIX=$(cat creds.json | jq -r '.resourcePrefix')
-CLUSTER_NAME="$RESOURCE_PREFIX"-keptn-orders-cluster
+CLUSTER_NAME="$RESOURCE_PREFIX"-keptn-hackfest-cluster
 
 clear 
 case $DEPLOYMENT in
@@ -26,8 +26,8 @@ case $DEPLOYMENT in
     eksctl delete cluster --name=$CLUSTER_NAME --region=$CLUSTER_REGION
     ;;
   aks)
-    AKS_RESOURCEGROUP="$RESOURCE_PREFIX-keptn-orders-group"
-    AKS_SERVICE_PRINCIPAL="$RESOURCE_PREFIX-keptn-orders-sp"
+    AKS_RESOURCEGROUP="$RESOURCE_PREFIX-keptn-hackfest-group"
+    AKS_SERVICE_PRINCIPAL="$RESOURCE_PREFIX-keptn-hackfest-sp"
 
     echo "===================================================="
     echo "About to delete $DEPLOYMENT_NAME cluster:"

@@ -23,7 +23,7 @@ Keptn expects all the code repositories and project files to be in the same GitH
 
 * **GitHub Organization** -  You can create an organization using the instruction on [GitHub](https://github.com/organizations/new). 
 
-    Suggested gihub organization name: ```<your last name>-keptn-hackfest-<cloud provider>```, e.g.: ```braeuer-keptn-hackfest-gcloud```
+    Suggested GitHub organization name: ```<your last name>-keptn-hackfest-<cloud provider>```, e.g., ```braeuer-keptn-hackfest-gcloud```
 
 ## 3. Tools
 
