@@ -41,7 +41,7 @@ gcloud beta container \
   --no-enable-basic-auth \
   --cluster-version $GKE_CLUSTER_VERSION \
   --node-labels=owner=$CLUSTER_NAME \
-  --machine-type "n1-standard-16" \
+  --machine-type "n1-standard-4" \
   --image-type "UBUNTU" \
   --disk-type "pd-standard" \
   --disk-size "100" \

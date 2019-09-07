@@ -71,7 +71,7 @@ In this workshop, we are going to use a pre-built Docker image that already has 
 1. To start the docker container you will use for this workshop, please execute:
 
     ```console
-    docker run -d -t jbraeuer/keptn-demo
+    docker run -d -t jbraeuer/keptn-demo:0.2
     ```
 
 1. Afterwards, you can SSH into this container. First, retrieve the `CONTAINER_ID` of the `keptn-demo` container. Then, use that ID to SSH into the container:
