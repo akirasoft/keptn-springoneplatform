@@ -225,4 +225,4 @@ To disable this feature:
 
 [Previous Step: Introducing quality gates](../03_Introducing_quality_gates) :arrow_backward: :arrow_forward:
 
-:arrow_up_small: [Back to overview](https://github.com/johannes-b/keptn-hackfest2019#overview)
+:arrow_up_small: [Back to overview](https://github.com/akirasoft/keptn-springoneplatform#overview)

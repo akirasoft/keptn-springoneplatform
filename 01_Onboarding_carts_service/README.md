@@ -11,7 +11,7 @@ To onboard the carts service, please follow these instructions:
 1. Navigate to the `keptn-onboarding` in the workshop directory:
     
     ```console
-    cd /usr/keptn/keptn-hackfest2019/keptn-onboarding
+    cd /usr/keptn/keptn-springoneplatform/keptn-onboarding
     ```
 
 1. Create the `sockshop` project, according to the provided *shipyard* file:
@@ -42,4 +42,4 @@ Now, your configuration repository contains all the information needed to deploy
 
 :arrow_forward: [Next Lab: Deploying the carts service](../02_Deploying_the_carts_service)
 
-:arrow_up_small: [Back to overview](https://github.com/johannes-b/keptn-hackfest2019#overview)
+:arrow_up_small: [Back to overview](https://github.com/akirasoft/keptn-springoneplatform#overview)
