@@ -73,7 +73,7 @@ case $DEPLOYMENT in
     ./deployDynatraceOnGKE.sh
     ;;
   pks)
-    ./deployDynatraceonPKS.sh
+    ./deployDynatraceOnPKS.sh
     ;;
   *)
     echo "Skipping deployDynatrace. $DEPLOYMENT_NAME not supported"
