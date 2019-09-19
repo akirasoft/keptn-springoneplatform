@@ -154,7 +154,7 @@ case $DEPLOYMENT in
     keptn install -c=creds.json --platform=kubernetes
 esac
 
-cd ../../..
+cd ~/scripts/
 
 echo "-------------------------------------------------------"
 echo "Finished Running keptn install"

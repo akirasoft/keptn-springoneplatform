@@ -13,7 +13,7 @@ In this workshop, you will get hands-on experience with the open source framewor
 
 * **Dynatrace** - Create an account for a [trial Dynatrace SaaS tenant](https://www.dynatrace.com/trial) and create a PaaS and API token. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/).
 * **GitHub** - A GitHub account is required and a personal access token with the permissions Keptn expects. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/installation/setup-keptn/).
-* **Cloud provider account** - Optional but highly recommended to sign up for personal free trial to have full admin rights and to not cause any issues with your enterprise account. This account will be used to Links to free trials:
+* **Cloud provider account** - If you will be unable to ssh to the bastion host from your machine, a GCP account is suggested to utilize Google Cloud Shell. It is recommedned to sign up for personal free trial to have full admin rights and to not cause any issues with your enterprise account. The below link can be used to sign up for a free trial:
    * [Google](https://cloud.google.com/free/)
 
 
@@ -23,11 +23,11 @@ Keptn expects all the code repositories and project files to be in the same GitH
 
 * **GitHub Organization** -  You can create an organization using the instruction on [GitHub](https://github.com/organizations/new). 
 
-    Suggested GitHub organization name: ```<your last name>-keptn-hackfest-<cloud provider>```, e.g., ```braeuer-keptn-hackfest-gcloud```
+    Suggested GitHub organization name: ```<your last name>-s1p-keptn```, e.g., ```mvilliger-s1p-keptn```
 
 ## 3. Tools
 
-In this workshop, we are providing two options that will have all the required tools installed. Each attendee should have a piece of paper at their seat with a workshop number.
+In this workshop, we are providing two options that will have all the required tools installed. Each attendee should have a piece of paper at their seat with a workshop number that will serve as your username and a temporary password usable only during the workshop.
 
 * **Option A: Bastion host** - A bastion host has been provisioned on GCP with all necessary tools installed, home directories for every workshop attendee and pre-configured kubectl contexts to access each attendee's dedicated PKS cluster. 
 
@@ -44,7 +44,7 @@ ssh suppliedusername@bastion.pks.gcp.aklabs.io
 1. To start the docker container you will use for this workshop, please execute:
 
     ```console
-    docker run -d -t --name keptn-workshop mvilliger/keptn-demo:0.3
+    docker run -d -t --name keptn-workshop mvilliger/keptn-workshop:0.3
     ```
 
 1. Afterwards, you can shell into this container. Please execute:
@@ -52,6 +52,13 @@ ssh suppliedusername@bastion.pks.gcp.aklabs.io
     ```console
     docker exec -it keptn-workshop /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
     ```
+
+1. Finally, utilize the pks cli to fetch the necessary configuration context for kubectl:
+    ```console
+    pks login -k -a api.pks.gcp.aklabs.io -u <suppliedusername> -p <suppliedpassword>
+    pks get-credentials <suppliedusername>
+    ```  
+
 
 # Install Keptn
 
@@ -66,11 +73,6 @@ ssh suppliedusername@bastion.pks.gcp.aklabs.io
     GitHub User Email:
     GitHub Organization:
     ```
-1. When you are in the container or bastion host, you need to log in to your PaaS account (GCP or AKS):
-
-    - If you are using **GCP**, execute `gcloud init`
-    - If you are using **Azure**, execute `az login`
-
 1. Once you are logged onto the bastion host or shelled in to the container, navigate to the `scripts` folder:
 
     ```console
@@ -82,9 +84,8 @@ ssh suppliedusername@bastion.pks.gcp.aklabs.io
     ```console
     ./setup.sh <deployment type>
     ```
-    **Note**: Valid `deployment type` argument values are:
-    * gke = Google
-    * aks = Azure
+    **Note**: While other options are available, for today's workshop, the only valid `deployment type` argument value is:
+    * pks = Pivotal Container Service
 
     The setup menu looks as follows:
     ```
