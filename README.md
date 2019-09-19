@@ -88,7 +88,7 @@ ssh suppliedusername@bastion.pks.gcp.aklabs.io
     The setup menu looks as follows:
     ```
     ====================================================
-    SETUP MENU for Azure AKS
+    SETUP MENU for Pivotal Container Service
     ====================================================
     1)  Enter Installation Script Inputs
     2)  Provision Kubernetes cluster
@@ -98,7 +98,6 @@ ssh suppliedusername@bastion.pks.gcp.aklabs.io
     ----------------------------------------------------
     99) Delete Kubernetes cluster
     ====================================================
-    Please enter your choice or <q> or <return> to exit
     ```
 
 ## 1) Enter Installation Script Inputs
@@ -131,7 +130,7 @@ The install will take **5-10 minutes** to perform.
 **Note**: Internally, this script will perform the following:
 1. Clones https://github.com/keptn/installer.  This repo has the cred.sav templates for building a creds.json file that the Keptn CLI can use as an argument
 1. Uses the values we already captured in the ```2-enterInstallationScriptInputs.sh``` script to create the creds.json file
-1. Runs the ```keptn install -c=creds.json --platform=<Cluster>``` 
+1. Runs the ```keptn install -c=creds.json --platform=<PlatformType>``` 
 
 </details>
 
@@ -143,7 +142,7 @@ The install will take **3-5 minutes** to perform.
 <details><summary>Details about this step</summary>
 
 **Note**: Internally, this script will perform the following:
-1. Clones https://github.com/keptn/dynatrace-service. This repo has scripts for each platform to install the Dyntrace OneAgent Operator and the cred_dt.sav template for building a creds_dt.json file that the install script expects to read
+1. Clones https://github.com/akirasoft/dynatrace-service. This repo has scripts for each platform to install the Dyntrace OneAgent Operator and the cred_dt.sav template for building a creds_dt.json file that the install script expects to read. This is a fork of the main repo containing updates to support PKS.
 1. Uses the values we already captured in the ```1-enterInstallationScriptInputs.sh``` script to create the creds_dt.json file
 1. Runs the ```/deploy/scripts/deployDynatraceOn<Platform>.sh``` script in the dynatrace-service folder
 

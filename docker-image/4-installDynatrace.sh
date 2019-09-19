@@ -97,6 +97,6 @@ echo "-------------------------------------------------------"
 ./showDynatrace.sh
 
 echo ""
-echo "Choose the 'Show Dyntrace' menu option to verify that Dynatrace pods"
+echo "Choose the 'Show Dynatrace' menu option to verify that Dynatrace pods"
 echo "for 'dynatrace-oneagent-operator' and 'oneagent' are in 'Running' status"
 
