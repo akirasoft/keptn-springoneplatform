@@ -1,6 +1,4 @@
-<img src="images/keptn.png" width="100%"/>
-
-**Building unbreakable automated multi-stage pipelines with keptn** workshop given @[Lakeside Hackfest 2019](https://www.lakeside-hackfest.com/)
+**Building Autonomous Operations for Pivotal Cloud Foundry with Keptn** workshop given @[Spring One Platform 2019](https://springoneplatform.io/)
 
 # Overview
 In this workshop, you will get hands-on experience with the open source framework [keptn](https://keptn.sh) and see how it can help you to manage your cloud-native applications on Kubernetes.
