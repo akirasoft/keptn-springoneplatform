@@ -56,6 +56,7 @@ RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 RUN curl -sL https://get.keptn.sh | bash
 WORKDIR /usr/keptn
 COPY . /usr/keptn/scripts
+COPY ./binaries/ /usr/local/bin/
 
 RUN git clone https://github.com/akirasoft/keptn-springoneplatform.git
 # Start the app

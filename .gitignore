@@ -7,7 +7,7 @@ keptn/
 reference/
 installer/
 dynatrace-service/
-
+docker-image/binaries/
 # credentials file with personal tokens
 creds.json*
 

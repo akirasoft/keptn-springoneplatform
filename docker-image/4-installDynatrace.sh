@@ -25,7 +25,8 @@ DT_PAAS_TOKEN=$(cat $SOURCE_CREDS_FILE | jq -r '.dynatracePaaSToken')
 echo "-------------------------------------------------------"
 echo "Cloning dynatrace service repo and building credential file"
 
-DT_SERVICE_GIT_REPO=https://github.com/keptn/dynatrace-service
+# using forked dynatrace service deployment as it contains PKS changes
+DT_SERVICE_GIT_REPO=https://github.com/akirasoft/dynatrace-service
 echo -e "Cloning $DT_SERVICE_GIT_REPO branch $DT_SERVICE_BRANCH"
 rm -rf dynatrace-service
 git clone --branch $DT_SERVICE_BRANCH $DT_SERVICE_GIT_REPO --single-branch
@@ -70,6 +71,9 @@ case $DEPLOYMENT in
     ;;
   eks)
     ./deployDynatraceOnGKE.sh
+    ;;
+  pks)
+    ./deployDynatraceonPKS.sh
     ;;
   *)
     echo "Skipping deployDynatrace. $DEPLOYMENT_NAME not supported"
