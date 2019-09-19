@@ -57,7 +57,7 @@ RUN curl -sL https://get.keptn.sh | bash
 WORKDIR /usr/keptn
 COPY . /usr/keptn/scripts
 
-RUN git clone https://github.com/bacherfl/keptn-hackfest2019
+RUN git clone https://github.com/akirasoft/keptn-springoneplatform.git
 # Start the app
 	
 CMD tail -f /dev/null

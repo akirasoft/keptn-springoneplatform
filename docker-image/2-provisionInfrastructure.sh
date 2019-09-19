@@ -22,13 +22,18 @@ case $DEPLOYMENT in
     echo "EKS_ELB    : $EKS_ELB"
     echo "-------------------------------------------------------"
     read -rsp $'Press ctrl-c to abort. Press any key to continue...\n' -n1 key
-
+    sleep 20
     ;;
   aks)
     ./provisionAks.sh $2
+    sleep 20
     ;;
   gke)
     ./provisionGke.sh $2
+    sleep 20
+    ;;
+  pks)
+    echo "PKS clusters pre-provisioned, no additional provisioning necessary"
     ;;
   *)
     echo "Deploy for $DEPLOYMENT not supported"
@@ -43,7 +48,7 @@ if [[ $? != 0 ]]; then
 fi
 
 # adding some sleep for validateKubectl sometimes fails, if cluster not fully ready
-sleep 20
+# sleep moved to deployment specific section
 
 echo "===================================================="
 echo "Finished provisioning $DEPLOYMENT_NAME Cluster"

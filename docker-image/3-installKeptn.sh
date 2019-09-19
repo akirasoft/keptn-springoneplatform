@@ -114,6 +114,8 @@ case $DEPLOYMENT in
       # TODO update once CLI updated
       # sed 's~CLUSTER_REGION_PLACEHOLDER~'"$EKS_CLUSTER_REGION"'~' >> $KEPTN_CREDS_FILE
     ;;
+  pks)
+    ;;
   *)
     echo "Skipping keptn install. $DEPLOYMENT_NAME not supported"
     exit
@@ -148,6 +150,8 @@ case $DEPLOYMENT in
     # TODO update once CLI updated
     keptn install -c=creds.json --platform=eks --keptn-version=develop --verbose
     ;;
+  pks)
+    keptn install -c=creds.json --platform=kubernetes
 esac
 
 cd ../../..

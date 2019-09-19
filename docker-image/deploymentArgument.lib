@@ -17,6 +17,9 @@ get_deployment_name()
     gke)
       DEPLOYMENT_NAME="Google GKE"
       ;;
+    pks)
+      DEPLOYMENT_NAME="Pivotal Container Service"
+      ;;
     *)
       DEPLOYMENT_NAME=$1
       ;;
@@ -34,6 +37,7 @@ show_deployment_help()
   #echo "ocp = Open Shift"
   echo "aks = Azure"
   echo "gke = Google" 
+  echo "pks = Pivotal Container Service"
   echo "=============================================" 
   echo ""
   exit 1
@@ -65,7 +69,7 @@ validate_deployment_argument() {
 
   # Validate Deployment argument value
   #OK=0 ; DEPLOY_TYPES="ocp eks gke aks"
-  OK=0 ; DEPLOY_TYPES="gke aks eks"
+  OK=0 ; DEPLOY_TYPES="gke aks eks pks"
   for DT in $DEPLOY_TYPES ; do [ $DEPLOYMENT == $DT ] && { OK=1 ; break; } ; done
   if [ $OK -eq 0 ]; then
     show_deployment_help

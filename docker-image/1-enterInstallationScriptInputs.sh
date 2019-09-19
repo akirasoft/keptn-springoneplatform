@@ -46,23 +46,27 @@ read -p "GitHub User Name                       (current: $GITHUB_USER_NAME) : "
 read -p "GitHub Personal Access Token           (current: $GITHUB_PERSONAL_ACCESS_TOKEN) : " GITHUB_PERSONAL_ACCESS_TOKEN_NEW
 read -p "GitHub User Email                      (current: $GITHUB_USER_EMAIL) : " GITHUB_USER_EMAIL_NEW
 read -p "GitHub Organization                    (current: $GITHUB_ORGANIZATION) : " GITHUB_ORGANIZATION_NEW
-read -p "PaaS Resource Prefix (e.g. lastname)   (current: $RESOURCE_PREFIX) : " RESOURCE_PREFIX_NEW
 
 case $DEPLOYMENT in
   eks)
+    read -p "PaaS Resource Prefix (e.g. lastname)   (current: $RESOURCE_PREFIX) : " RESOURCE_PREFIX_NEW
     read -p "AWS Cluster Region (eg.us-east-1)      (current: $EKS_CLUSTER_REGION) : " EKS_CLUSTER_REGION_NEW
     read -p "AWS Domain (eg.jahn.demo.keptn.sh      (current: $EKS_DOMAIN) : " EKS_DOMAIN_NEW
     ;;
   aks)
+    read -p "PaaS Resource Prefix (e.g. lastname)   (current: $RESOURCE_PREFIX) : " RESOURCE_PREFIX_NEW
     read -p "Azure Subscription ID                  (current: $AKS_SUBSCRIPTION_ID) : " AKS_SUBSCRIPTION_ID_NEW
     read -p "Azure Location                         (current: $AKS_LOCATION) : " AKS_LOCATION_NEW
     ;;
   gke)
+    read -p "PaaS Resource Prefix (e.g. lastname)   (current: $RESOURCE_PREFIX) : " RESOURCE_PREFIX_NEW
     read -p "Google Project                         (current: $GKE_PROJECT) : " GKE_PROJECT_NEW
     read -p "Google Cluster Zone (eg.us-east1-b)    (current: $GKE_CLUSTER_ZONE) : " GKE_CLUSTER_ZONE_NEW
     read -p "Google Cluster Region (eg.us-east1)    (current: $GKE_CLUSTER_REGION) : " GKE_CLUSTER_REGION_NEW
     ;;
   ocp)
+    ;;
+  pks)
     ;;
 esac
 echo "==================================================================="
@@ -115,6 +119,8 @@ case $DEPLOYMENT in
     ;;
   ocp)
     ;;
+  pks)
+    ;;
 esac
 echo "==================================================================="
 read -p "Is this all correct? (y/n) : " -n 1 -r
@@ -136,22 +142,23 @@ then
       sed 's~GITHUB_USER_NAME_PLACEHOLDER~'"$GITHUB_USER_NAME"'~' | \
       sed 's~PERSONAL_ACCESS_TOKEN_PLACEHOLDER~'"$GITHUB_PERSONAL_ACCESS_TOKEN"'~' | \
       sed 's~GITHUB_USER_EMAIL_PLACEHOLDER~'"$GITHUB_USER_EMAIL"'~' | \
-      sed 's~GITHUB_ORG_PLACEHOLDER~'"$GITHUB_ORGANIZATION"'~' | \
-      sed 's~RESOURCE_PREFIX_PLACEHOLDER~'"$RESOURCE_PREFIX"'~' > $CREDS
+      sed 's~GITHUB_ORG_PLACEHOLDER~'"$GITHUB_ORGANIZATION"'~' > $CREDS
 
     case $DEPLOYMENT in
       eks)
         cp $CREDS $CREDS.temp
         cat $CREDS.temp | \
           sed 's~EKS_DOMAIN_PLACEHOLDER~'"$EKS_DOMAIN"'~' | \
-          sed 's~EKS_CLUSTER_REGION_PLACEHOLDER~'"$EKS_CLUSTER_REGION"'~' > $CREDS
+          sed 's~EKS_CLUSTER_REGION_PLACEHOLDER~'"$EKS_CLUSTER_REGION"'~' | \
+          sed 's~RESOURCE_PREFIX_PLACEHOLDER~'"$RESOURCE_PREFIX"'~' > $CREDS
         rm $CREDS.temp 2> /dev/null
         ;;
       aks)
         cp $CREDS $CREDS.temp
         cat $CREDS.temp | \
           sed 's~AKS_SUBSCRIPTION_ID_PLACEHOLDER~'"$AKS_SUBSCRIPTION_ID"'~' | \
-          sed 's~AKS_LOCATION_PLACEHOLDER~'"$AKS_LOCATION"'~' > $CREDS
+          sed 's~AKS_LOCATION_PLACEHOLDER~'"$AKS_LOCATION"'~' | \
+          sed 's~RESOURCE_PREFIX_PLACEHOLDER~'"$RESOURCE_PREFIX"'~' > $CREDS
         rm $CREDS.temp 2> /dev/null
         ;;
       gke)
@@ -159,10 +166,13 @@ then
         cat $CREDS.temp | \
           sed 's~GKE_PROJECT_PLACEHOLDER~'"$GKE_PROJECT"'~' | \
           sed 's~GKE_CLUSTER_REGION_PLACEHOLDER~'"$GKE_CLUSTER_REGION"'~' | \
-          sed 's~GKE_CLUSTER_ZONE_PLACEHOLDER~'"$GKE_CLUSTER_ZONE"'~' > $CREDS
+          sed 's~GKE_CLUSTER_ZONE_PLACEHOLDER~'"$GKE_CLUSTER_ZONE"'~' | \
+          sed 's~RESOURCE_PREFIX_PLACEHOLDER~'"$RESOURCE_PREFIX"'~' > $CREDS
         rm $CREDS.temp 2> /dev/null
         ;;
       ocp)
+        ;;
+      pks)
         ;;
     esac
     echo ""

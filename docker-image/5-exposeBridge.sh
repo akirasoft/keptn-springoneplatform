@@ -1,4 +1,10 @@
 #!/bin/bash
+DEPLOYMENT=$1
+if [[ $DEPLOYMENT == "pks" ]]; then
+  echo ""
+  echo "Bridge is not supported on Pivotal Container Service"
+  exit 1
+fi
 
 DOMAIN=$(kubectl get cm -n keptn keptn-domain -oyaml | yq - r data.app_domain)
 

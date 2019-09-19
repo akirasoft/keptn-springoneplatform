@@ -50,7 +50,7 @@ while [ opt != "" ]
                 show_menu
                 ;;
         5)
-                ./5-exposeBridge.sh 2>&1 | tee logs/5-exposeBridge.log
+                ./5-exposeBridge.sh $DEPLOYMENT 2>&1 | tee logs/5-exposeBridge.log
                 show_menu
                 ;;
         99)
