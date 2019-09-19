@@ -52,13 +52,15 @@ AKS_SUBSCRIPTION_ID=$(cat $SOURCE_CREDS_FILE | jq -r '.aksSubscriptionId')
 # EKS
 EKS_CLUSTER_REGION=$(cat $SOURCE_CREDS_FILE | jq -r '.eksClusterRegion')
 
-echo "-------------------------------------------------------"
-echo "Cloning Keptn installer repo and building credential file"
+if [[ $DEPLOYMENT != "pks" ]]; then
+  echo "-------------------------------------------------------"
+  echo "Cloning Keptn installer repo and building credential file"
 
-KEPTN_GIT_REPO=https://github.com/keptn/installer
-echo -e "Cloning $KEPTN_GIT_REPO branch $KEPTN_BRANCH"
-rm -rf installer
-git clone --branch $KEPTN_BRANCH $KEPTN_GIT_REPO --single-branch
+  KEPTN_GIT_REPO=https://github.com/keptn/installer
+  echo -e "Cloning $KEPTN_GIT_REPO branch $KEPTN_BRANCH"
+  rm -rf installer
+  git clone --branch $KEPTN_BRANCH $KEPTN_GIT_REPO --single-branch
+fi
 
 echo "-------------------------------------------------------"
 echo "Creating Keptn credential files"
@@ -154,7 +156,7 @@ case $DEPLOYMENT in
     keptn install -c=creds.json --platform=kubernetes
 esac
 
-cd ~/scripts/
+cd /usr/keptn/scripts/
 
 echo "-------------------------------------------------------"
 echo "Finished Running keptn install"
