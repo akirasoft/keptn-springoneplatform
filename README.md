@@ -108,7 +108,7 @@ This will prompt you for values that are referenced in the remaining setup scrip
 
 ```
 ===================================================================
-Please enter the values for provider type: Google GKE:
+Please enter the values for provider type: Pivotal Container Service:
 ===================================================================
 Dynatrace Host Name (e.g. abc12345.live.dynatrace.com)  (current: DYNATRACE_HOSTNAME_PLACEHOLDER) : 
 Dynatrace API Token                                     (current: DYNATRACE_API_TOKEN_PLACEHOLDER) : 
