@@ -62,7 +62,8 @@ WORKDIR /usr/keptn
 COPY . /usr/keptn/scripts
 COPY ./binaries/ /usr/local/bin/
 
-RUN git clone https://github.com/akirasoft/keptn-springoneplatform.git
+#RUN git clone https://github.com/akirasoft/keptn-springoneplatform.git
+RUN git clone --branch keptn-0.5.0 https://github.com/akirasoft/keptn-springoneplatform.git --single-branch
 # Start the app
 	
 CMD tail -f /dev/null
