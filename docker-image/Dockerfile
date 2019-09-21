@@ -54,8 +54,8 @@ RUN apt-get update && apt-get install google-cloud-sdk -y
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 #RUN curl -sL https://get.keptn.sh | bash
-RUN wget -q https://github.com/keptn/keptn/releases/download/0.5.0.beta/0.5.0.beta_keptn-linux.zip -o 0.5.0.beta_keptn-linux.zip && \
-  tar xvzf 0.5.0.beta_keptn-linux.zip && \
+RUN wget -q https://storage.googleapis.com/keptn-cli/20190920.0918-latest/keptn-linux.tar.gz -O keptn-linux.tar.gz && \
+  tar xvzf keptn-linux.tar.gz && \
   mv keptn /bin/keptn
 
 WORKDIR /usr/keptn
