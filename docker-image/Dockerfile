@@ -2,9 +2,11 @@ FROM ubuntu:18.04
 
 ENV KEPTN_INSTALL_ENV "cluster"
 
-RUN apt-get update \
+RUN add-apt-repository ppa:cpick/hub \
+  && apt-get update \
   && apt-get install -y curl \
-  && apt-get install -y wget
+  && apt-get install -y wget \
+  && apt-get install -y hub
 
 ## Install go
 # RUN mkdir -p /goroot && \
