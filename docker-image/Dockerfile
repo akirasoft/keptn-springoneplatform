@@ -4,12 +4,7 @@ ENV KEPTN_INSTALL_ENV "cluster"
 
 RUN apt-get update \
   && apt-get install -y curl \
-  && apt-get install -y wget \
-  && apt-get install -y software-properties-common
-
-RUN add-apt-repository ppa:cpick/hub \
-  && apt-get update \
-  && apt-get install -y hub
+  && apt-get install -y wget 
   
 ## Install go
 # RUN mkdir -p /goroot && \
@@ -57,6 +52,10 @@ RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyri
 RUN apt-get update && apt-get install google-cloud-sdk -y
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
+RUN wget https://github.com/github/hub/releases/download/v2.12.7/hub-linux-amd64-2.12.7.tgz \
+  && tar xvzf hub-linux-amd64-2.12.7.tgz \
+  && hub-linux-amd64-2.12.7/install
 
 RUN curl -sL https://get.keptn.sh | bash
 WORKDIR /usr/keptn
