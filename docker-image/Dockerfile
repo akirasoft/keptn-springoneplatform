@@ -2,12 +2,15 @@ FROM ubuntu:18.04
 
 ENV KEPTN_INSTALL_ENV "cluster"
 
-RUN add-apt-repository ppa:cpick/hub \
-  && apt-get update \
+RUN apt-get update \
   && apt-get install -y curl \
   && apt-get install -y wget \
-  && apt-get install -y hub
+  && apt-get install -y software-properties-common
 
+RUN add-apt-repository ppa:cpick/hub \
+  && apt-get update \
+  && apt-get install -y hub
+  
 ## Install go
 # RUN mkdir -p /goroot && \
 #   curl https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
