@@ -1,29 +1,20 @@
 **Building Autonomous Operations for Pivotal Cloud Foundry with Keptn** workshop given @[Spring One Platform 2019](https://springoneplatform.io/)
 
 # Overview
-In this workshop, you will get hands-on experience with the open source framework [keptn](https://keptn.sh) and see how it can help you to manage your cloud-native applications on Kubernetes.
+In this workshop, you will get hands-on experience with the open source framework [Keptn](https://keptn.sh) and see how it can help you to manage your cloud-native applications on Kubernetes.
 
-1. For a great workshop experience, we ask you to keep track of your completed tasks. Therefore, please open this [spreadsheet](https://docs.google.com/spreadsheets/d/1D03FD_-yINTcGGzYcKH4_ES2t1skyZrV18O9mSyR3g0/edit?usp=sharing) and enter your name.
+1. For a great workshop experience, we ask you to keep track of your completed tasks. Therefore, please open this [spreadsheet](https://docs.google.com/spreadsheets/d/12uvI0MCJ12yAACO-jT1Yz81sOOClYZCl_HPv0f1bFmI/edit?usp=sharing) and enter your name.
 
 # Pre-requisites
 
 ## 1. Accounts
 
-* **Dynatrace** - Create an account for a [trial Dynatrace SaaS tenant](https://www.dynatrace.com/trial) and create a PaaS and API token. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/).
-* **GitHub** - A GitHub account is required and a personal access token with the permissions Keptn expects. See details in the [keptn docs](https://keptn.sh/docs/0.4.0/installation/setup-keptn/).
+* **Dynatrace** - Create an account for a [trial Dynatrace SaaS tenant](https://www.dynatrace.com/trial) and create a PaaS and API token. See details in the [Keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/).
 * **Cloud provider account** - If you will be unable to ssh to the bastion host from your machine, a GCP account is suggested to utilize Google Cloud Shell. It is recommedned to sign up for personal free trial to have full admin rights and to not cause any issues with your enterprise account. The below link can be used to sign up for a free trial:
    * [Google](https://cloud.google.com/free/)
 
 
-## 2. GitHub Organization
-
-Keptn expects all the code repositories and project files to be in the same GitHub organization.
-
-* **GitHub Organization** -  You can create an organization using the instruction on [GitHub](https://github.com/organizations/new). 
-
-    Suggested GitHub organization name: ```<your last name>-s1p-keptn```, e.g., ```mvilliger-s1p-keptn```
-
-## 3. Tools
+## 2. Tools
 
 In this workshop, we are providing two options that will have all the required tools installed. Each attendee should have a piece of paper at their seat with a workshop number that will serve as your username and a temporary password usable only during the workshop.
 
@@ -102,7 +93,7 @@ ssh suppliedusername@bastion.pks.gcp.aklabs.io
 
 ## 1) Enter Installation Script Inputs
 
-Before you do this step, be prepared with your GitHub credentials, Dynatrace tokens, and Cloud provider project information available.
+Before you do this step, be prepared with your Dynatrace tokens and Cloud provider project information available.
 
 This will prompt you for values that are referenced in the remaining setup scripts. Inputted values are stored in `creds.json` file. For example, the menu looks like:
 
@@ -118,6 +109,10 @@ GitHub Personal Access Token                            (current: PERSONAL_ACCES
 GitHub User Email                                       (current: GITHUB_USER_EMAIL_PLACEHOLDER) : 
 GitHub Organization                                     (current: GITHUB_ORG_PLACEHOLDER) : 
 ```
+
+## 2) Provision Kupernetes Cluster
+
+This step has already been taken care of for you. Nothing to do here.
 
 ## 3) Install Keptn
 
@@ -150,7 +145,7 @@ The install will take **3-5 minutes** to perform.
 
 ## 5) Expose Keptn's Bridge - OPTIONAL
 
-The [Keptn’s bridge](https://keptn.sh/docs/0.4.0/reference/keptnsbridge/) provides an easy way to browse all events that are sent within Keptn and to filter on a specific Keptn context. When you access the keptn’s bridge, all Keptn entry points will be listed in the left column. Please note that this list only represents the start of a deployment of a new artifact. Thus, more information on the executed steps can be revealed when you click on one event.
+The [Keptn’s bridge](https://keptn.sh/docs/0.4.0/reference/keptnsbridge/) provides an easy way to browse all events that are sent within Keptn and to filter on a specific Keptn context. When you access the Keptn’s bridge, all Keptn entry points will be listed in the left column. Please note that this list only represents the start of a deployment of a new artifact. Thus, more information on the executed steps can be revealed when you click on one event.
 
 <img src="images/bridge-empty.png" width="500"/>
 
