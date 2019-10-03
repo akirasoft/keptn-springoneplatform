@@ -9,7 +9,7 @@ In this workshop, you will get hands-on experience with the open source framewor
 
 ## 1. Accounts
 
-* **Dynatrace** - Create an account for a [trial Dynatrace SaaS tenant](https://www.dynatrace.com/trial) and create a PaaS and API token. See details in the [Keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/).
+* **Dynatrace** - Create an account for a [free trial Dynatrace SaaS tenant](https://www.dynatrace.com/trial) and create a PaaS and API token. See details in the [Keptn docs](https://keptn.sh/docs/0.4.0/monitoring/dynatrace/).
 * **Cloud provider account** - If you will be unable to ssh to the bastion host from your machine, a GCP account is suggested to utilize Google Cloud Shell. It is recommedned to sign up for personal free trial to have full admin rights and to not cause any issues with your enterprise account. The below link can be used to sign up for a free trial:
    * [Google](https://cloud.google.com/free/)
 
