@@ -20,7 +20,7 @@ spec:
       containers:
       - name: carts
         image: "{{ .Values.image }}"
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - name: http
           protocol: TCP
