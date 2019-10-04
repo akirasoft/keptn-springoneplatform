@@ -1,4 +1,4 @@
-**Building Autonomous Operations for Pivotal Cloud Foundry with Keptn** workshop given @[Spring One Platform 2019](https://springoneplatform.io/)
+**Building Autonomous Operations for Pivotal Platform with Keptn** workshop given @[SpringOne Platform 2019](https://springoneplatform.io/)
 
 # Overview
 In this workshop, you will get hands-on experience with the open source framework [Keptn](https://keptn.sh) and see how it can help you to manage your cloud-native applications on Kubernetes.
