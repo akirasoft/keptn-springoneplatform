@@ -161,7 +161,7 @@ In the default installation of Keptn, the bridge is only accessible via `kubectl
 
 # Hands-on Labs
 
-After provision the cluster and installing Keptn, we are now ready to explore to execute the following hands-on labs. They are based on each other, why it is important to complete the according to this order:
+After provision the cluster and installing Keptn, we are now ready to explore to execute the following hands-on labs. They are based on each other, why it is important to complete them according to this order:
 
 1. Onboarding the carts service: [Lab](./01_Onboarding_carts_service)
 1. Deploying the carts service: [Lab](./02_Deploying_the_carts_service)
@@ -175,3 +175,7 @@ Join the Keptn community!
 Further information about Keptn you can find on the [keptn.sh](keptn.sh) website. Keptn itself lives on [GitHub](https://github.com/keptn/keptn).
 
 **Feel free to contribute or reach out to the Keptn team using a channel provided [here](https://github.com/keptn/community)**.
+
+Join our Slack channel!
+
+The easiest way to get in contact with Keptn users and creaters is to [join our Slack channel](https://join.slack.com/t/keptn/shared_invite/enQtNTUxMTQ1MzgzMzUxLTcxMzE0OWU1YzU5YjY3NjFhYTJlZTNjOTZjY2EwYzQyYWRkZThhY2I3ZDMzN2MzOThkZjIzOTdhOGViMDNiMzI) - we are happy to meet you there!
