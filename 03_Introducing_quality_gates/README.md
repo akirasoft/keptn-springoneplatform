@@ -48,7 +48,7 @@ As a result, the new artifact will not be promoted into the `production` stage. 
 
 <img src="images/quality_gates.png" width="100%"/>
 
-The following image should illustrate the benefit of the Keptn quality gates. In the first row we can see the deployment of the new version **V2** of the carts service that is promoted to the staging environment. After evaluating the test results in the staging environment, Keptn blocks the promotion of this version due to its insufficient quality in terms of response time. Furthermore, Keptn switches back the traffic to the previous version in the staging environment (second row). Our production environment was never affected.
+The following image should illustrate the benefit of the Keptn quality gates. In the first row we can see the deployment of the new version **v2** of the carts service that is promoted to the staging environment. After evaluating the test results in the staging environment, Keptn blocks the promotion of this version due to its insufficient quality in terms of response time. Furthermore, Keptn switches back the traffic to the previous version in the staging environment (second row). Our production environment was never affected.
 
 <img src="images/gates-illustration.png" width="100%"/>
 
