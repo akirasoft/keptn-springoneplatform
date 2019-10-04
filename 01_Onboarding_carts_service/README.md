@@ -6,9 +6,6 @@ Now that your environment is up and running and monitored by Dynatrace, you can 
 
 To create a project which is the logical entity that holds services, please follow these instructions:
 
-
-1. TODO In the docker container, quit the setup script you were using to setup the infrastructure.
-
 1. Navigate to the `keptn-onboarding` folder in the workshop directory:
     
     ```console
