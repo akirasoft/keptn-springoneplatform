@@ -64,6 +64,9 @@ COPY ./binaries/ /usr/local/bin/
 
 #RUN git clone https://github.com/akirasoft/keptn-springoneplatform.git
 RUN git clone --branch keptn-0.5.0 https://github.com/akirasoft/keptn-springoneplatform.git --single-branch
+
+# get the dynatrace service with PKS support
+RUN git clone --branch release-0.3.1 https://github.com/keptn-contrib/dynatrace-service --single-branch
+
 # Start the app
-	
 CMD tail -f /dev/null
