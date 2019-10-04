@@ -50,9 +50,11 @@ echo http://carts.sockshop-staging.$(kubectl get cm keptn-domain -n keptn -o=jso
 echo http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 ```
 
-Navigate to the URLs to inspect your carts service. In the production namespace, you should receive an output similar to this:
+Navigate to the URLs to inspect your carts service. You should be able to see that Keptn deployed your carts service to all of your environments after executing all specified tests.
 
-<img src="images/carts-production.png" width="50%"/>
+<img src="images/carts-stages.png" width="100%"/>
+
+Let us now continue to activate the quality gates to control if a new version will be promoted or not.
 
 ---
 
