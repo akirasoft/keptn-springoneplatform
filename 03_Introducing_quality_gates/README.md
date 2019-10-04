@@ -39,9 +39,18 @@ On the info homepage of the service, the **Version** should now be set to **v2**
 
 As soon as this version has been deployed into the `staging` environment, the `jmeter-service` will execute the performance tests for this service. When those are finished, the `pitometer-service` will evaluate them using Dynatrace as a data source. At this point, it will detect that the response time of the service is too high and mark the evaluation of the performance tests as `failed`.
 
+In Dynatrace we can also see the current status, since the Dynatrace service of Keptn is sending updates each time it receives specific events, e.g, starting and finsihing tests.
+
+<img src="images/dynatrace-events.png" width="90%">
+
+
 As a result, the new artifact will not be promoted into the `production` stage. Additionally, the traffic routing within the `staging` stage will be automatically updated in order to send requests to the previous version of the service. You can again verify that by navigating to the service homepage and inspecting the **Version** property. This should now be set to **v1** again.
 
 <img src="images/quality_gates.png" width="100%"/>
+
+The following image should illustrate the benefit of the Keptn quality gates. In the first row we can see the deployment of the new version **V2** of the carts service that is promoted to the staging environment. After evaluating the test results in the staging environment, Keptn blocks the promotion of this version due to its insufficient quality in terms of response time. Furthermore, Keptn switches back the traffic to the previous version in the staging environment (second row). Our production environment was never affected.
+
+<img src="images/gates-illustration.png" width="100%"/>
 
 
 # Deployment of a carts version without the slowdown
