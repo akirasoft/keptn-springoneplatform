@@ -63,5 +63,3 @@ Now, your configuration repository contains all the information needed to deploy
 ---
 
 :arrow_forward: [Next Lab: Deploying the carts service](../02_Deploying_the_carts_service)
-
-:arrow_up_small: [Back to overview](../#overview)

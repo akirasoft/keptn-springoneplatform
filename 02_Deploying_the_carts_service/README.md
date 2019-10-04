@@ -57,5 +57,3 @@ Navigate to the URLs to inspect your carts service. In the production namespace,
 ---
 
 [Previous Step: Onboarding carts service](../01_Onboarding_carts_service) :arrow_backward: :arrow_forward: [Next Step: Introducing quality gates](../03_Introducing_quality_gates)
-
-:arrow_up_small: [Back to overview](../)
