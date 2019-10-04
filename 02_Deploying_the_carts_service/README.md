@@ -52,11 +52,10 @@ echo http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=
 
 Navigate to the URLs to inspect your carts service. In the production namespace, you should receive an output similar to this:
 
-TODO
 <img src="images/carts-production.png" width="50%"/>
 
 ---
 
 [Previous Step: Onboarding carts service](../01_Onboarding_carts_service) :arrow_backward: :arrow_forward: [Next Step: Introducing quality gates](../03_Introducing_quality_gates)
 
-:arrow_up_small: [Back to overview](../#overview)
+:arrow_up_small: [Back to overview](../)
