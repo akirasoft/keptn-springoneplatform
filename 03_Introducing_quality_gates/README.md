@@ -34,9 +34,15 @@ After some time, this new version will be deployed into the `dev` stage. If you 
 
 On the info homepage of the service, the **Version** should now be set to **v2**, and the **Delay in ms** value should be set to **1000**. (Note that it can take a few minutes until this version is deployed after sending the `new-artifact` event.)
 
+<img src="images/carts-staging-slow.png" width="50%"/>
+
+
 As soon as this version has been deployed into the `staging` environment, the `jmeter-service` will execute the performance tests for this service. When those are finished, the `pitometer-service` will evaluate them using Dynatrace as a data source. At this point, it will detect that the response time of the service is too high and mark the evaluation of the performance tests as `failed`.
 
 As a result, the new artifact will not be promoted into the `production` stage. Additionally, the traffic routing within the `staging` stage will be automatically updated in order to send requests to the previous version of the service. You can again verify that by navigating to the service homepage and inspecting the **Version** property. This should now be set to **v1** again.
+
+<img src="images/quality_gates.png" width="100%"/>
+
 
 # Deployment of a carts version without the slowdown
 
@@ -48,10 +54,7 @@ To demonstrate that the quality gate opens and allows promoting a version into p
 
 As a result, the new artifact will be promoted into the `production` stage. Please follow the logs in the Keptn's bridge to verify that:
 
-TODO update image
-<details><summary>Keptn's bridge with carts 0.9.3</summary>
 <img src="images/keptn_bridge.png" width="100%"/>
-</details>
 
 ---
 
