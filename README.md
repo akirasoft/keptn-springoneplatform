@@ -20,9 +20,9 @@ In this workshop, we are providing two options that will have all the required t
 
 * **Option A: Bastion host** - A bastion host has been provisioned on GCP with all necessary tools installed, home directories for every workshop attendee and pre-configured kubectl contexts to access each attendee's dedicated PKS cluster. 
 
-```console
-ssh suppliedusername@bastion.pks.gcp.aklabs.io
-```
+    ```console
+    ssh suppliedusername@bastion.pks.gcp.aklabs.io
+    ```
 
 * **Option B: Docker in Google Cloud Shell** - For those that can't utilize a local ssh client connecting to the bastion host. a docker image has been created containing the same contents of the bastion host. This docker image can be executed via Google Cloud Shell.
 1. For those that can't use an ssh client, just go to [Google Cloud](https://console.cloud.google.com) and activate Cloud Shell as shown below:
@@ -33,7 +33,7 @@ ssh suppliedusername@bastion.pks.gcp.aklabs.io
 1. To start the docker container you will use for this workshop, please execute:
 
     ```console
-    docker run -d -t --name keptn-workshop mvilliger/keptn-workshop:0.3
+    docker run -d -t --name keptn-workshop jetzlstorfer/keptn-workshop:0.5
     ```
 
 1. Afterwards, you can shell into this container. Please execute:
@@ -62,6 +62,8 @@ ssh suppliedusername@bastion.pks.gcp.aklabs.io
     ```
 
 1. To retrieve the API and PaaS Token, login to your Dynatrace tenant and navigate in the left-hand menu to **Settings -> Integration -> Dyantrace API** and click on **Generate token**. Provide a name, e.g., **keptn-token** and make sure to create a token with the following permissions:
+    <details><summary>Open for permissions</summary>
+    
     - Access problem and event feed, metrics and topology
     - Access logs
     - Configure maintenance windows
@@ -69,14 +71,16 @@ ssh suppliedusername@bastion.pks.gcp.aklabs.io
     - Write configuration
     - Capture request data
     - Real user monitoring JavaScript tag management
+    </details>
 
     Copy the value of the token into your temporary file.
 
 1. Retrieve the PaaS Token by navigating to **Settings -> Integration ->Platform as a Service** and generate a new token again with a name of your choice, e.g., **keptn-token**. Copy the value to your temporary file to keep it as a reference for later.
 
-1. Once you are logged onto the bastion host or shelled in to the container we are ready to install Keptn.
 
 ## 2) Install Keptn
+
+Once you are logged onto the bastion host or shelled in to the container we are ready to install Keptn.
 
 Install the Keptn control plane components into your cluster, using the **Keptn CLI**:
 
@@ -84,7 +88,7 @@ Install the Keptn control plane components into your cluster, using the **Keptn 
 keptn install --platform=kubernetes
 ```
 
-The install will take **5-7 minutes** to perform.
+The install will take about **5 minutes** to perform.
 
 <details><summary>Details about this step</summary>
 
@@ -95,32 +99,33 @@ Once the installation is finished you should find a couple of pods running in yo
 ```console
 $ kubectl get pods -n keptn
 
-api-f7689c9d8-9kk7l                                               1/1     Running   0          10h
-bridge-fd68b4c67-rk4nm                                            1/1     Running   0          10h
-configuration-service-6d69f8c547-5nw2c                            1/1     Running   0          10h
-eventbroker-go-b65b9bb68-pxj57                                    1/1     Running   0          10h
-gatekeeper-service-665447b98b-l5qxd                               1/1     Running   0          10h
-gatekeeper-service-evaluation-done-distributor-55cbcb5844-cflh7   1/1     Running   0          10h
-helm-service-5f65468cf6-r5h2t                                     1/1     Running   0          10h
-helm-service-configuration-change-distributor-cfd57c9d9-z5skm     1/1     Running   0          10h
-helm-service-service-create-distributor-7bbdd68969-8vsw5          1/1     Running   0          10h
-jmeter-service-84479f4bfd-c4n7f                                   1/1     Running   0          10h
-jmeter-service-deployment-distributor-864bf9f745-tvnh7            1/1     Running   0          10h
-keptn-nats-cluster-1                                              1/1     Running   0          10h
-nats-operator-7dcd546854-mzg5q                                    1/1     Running   0          10h
-pitometer-service-6fd6c4bd9b-xjm6x                                1/1     Running   0          10h
-pitometer-service-tests-finished-distributor-5697bbd859-bhxnp     1/1     Running   0          10h
-prometheus-service-8676b7588f-gh6jc                               1/1     Running   0          10h
-prometheus-service-monitoring-configure-distributor-778848vgwll   1/1     Running   0          10h
-remediation-service-5b486d69c-szbc8                               1/1     Running   0          10h
-remediation-service-problem-distributor-6d88b7d65c-9cg4h          1/1     Running   0          10h
-servicenow-service-7cd9b8784-s6vdb                                1/1     Running   0          10h
-servicenow-service-problem-distributor-7fccc4986-vmggd            1/1     Running   0          10h
-shipyard-service-7f88695b49-nk2k4                                 1/1     Running   0          10h
-shipyard-service-create-project-distributor-7bff8fc48f-857hz      1/1     Running   0          10h
-shipyard-service-delete-project-distributor-786645fb7b-r6qgq      1/1     Running   0          10h
-wait-service-55d476cd97-598rd                                     1/1     Running   0          10h
-wait-service-deployment-distributor-fdcf99f67-rqrfq               1/1     Running   0          10h
+NAME                                                              READY   STATUS    RESTARTS   AGE
+api-f7689c9d8-dj7vj                                               1/1     Running   0          2m3s
+bridge-fd68b4c67-rf5dw                                            1/1     Running   0          2m3s
+configuration-service-6d69f8c547-lm46q                            1/1     Running   0          2m2s
+eventbroker-go-b65b9bb68-cm8c4                                    1/1     Running   0          2m3s
+gatekeeper-service-665447b98b-dtmtb                               1/1     Running   0          2m3s
+gatekeeper-service-evaluation-done-distributor-55cbcb5844-zpkn4   1/1     Running   0          2m1s
+helm-service-5f65468cf6-2rbgt                                     1/1     Running   0          2m3s
+helm-service-configuration-change-distributor-cfd57c9d9-hrq9c     1/1     Running   0          2m2s
+helm-service-service-create-distributor-7bbdd68969-jwtjt          1/1     Running   0          2m2s
+jmeter-service-84479f4bfd-qmfqz                                   1/1     Running   0          2m3s
+jmeter-service-deployment-distributor-864bf9f745-9v2hb            1/1     Running   0          2m2s
+keptn-nats-cluster-1                                              1/1     Running   0          2m31s
+nats-operator-7dcd546854-mftl9                                    1/1     Running   0          2m49s
+pitometer-service-6fd6c4bd9b-8vccf                                1/1     Running   0          2m3s
+pitometer-service-tests-finished-distributor-5697bbd859-r48g7     1/1     Running   0          2m2s
+prometheus-service-8676b7588f-j8pzj                               1/1     Running   0          53s
+prometheus-service-monitoring-configure-distributor-7788487749d   1/1     Running   0          38s
+remediation-service-5b486d69c-ljmfq                               1/1     Running   0          2m2s
+remediation-service-problem-distributor-6d88b7d65c-8jwsm          1/1     Running   0          2m1s
+servicenow-service-7cd9b8784-mrx7d                                1/1     Running   0          54s
+servicenow-service-problem-distributor-7fccc4986-w9qg8            1/1     Running   0          38s
+shipyard-service-7f88695b49-ncqr8                                 1/1     Running   0          2m3s
+shipyard-service-create-project-distributor-7bff8fc48f-44v9l      1/1     Running   0          2m1s
+shipyard-service-delete-project-distributor-786645fb7b-nw7p8      1/1     Running   0          2m1s
+wait-service-55d476cd97-pfbht                                     1/1     Running   0          2m3s
+wait-service-deployment-distributor-fdcf99f67-g7jl9               1/1     Running   0          2m1s
 ```
 
 </details>
@@ -142,7 +147,7 @@ This will install the Dynatrace OneAgent Operator into your cluster.
     ./deployDynatraceOnPKS.sh
     ```
 
-The install will take **3-5 minutes** to perform.
+The install will take about **2 minutes** to perform.
 
 ## 4) Expose Keptn's Bridge - OPTIONAL
 
@@ -150,10 +155,16 @@ The [Keptn’s bridge](https://keptn.sh/docs/0.5.0/reference/keptnsbridge/) prov
 
 In the default installation of Keptn, the bridge is only accessible via `kubectl port-forward`. To make things easier for workshop participants, we will expose it by creating a public URL for this component.
 
-1. Execute the script to expose the bridge.
+1. Navigate to the folder to expose the bridge.
     ```console
-    /usr/keptn/scripts/exposeBridgePKS.sh
+    cd /usr/keptn/scripts
     ```
+
+1. Execute the following script.
+    ```console
+    ./exposeBridgePKS.sh
+    ```
+
 1. It will give you the URL of your Bridge at the end of the script. Open a browser and verify the bridge is running.
 
     <img src="images/bridge-empty.png" width="500"/>
