@@ -10,7 +10,7 @@ These files have already put in your Docker container.
 
 ## Configure keptn
 
-In order for keptn to use both ServiceNow and Dynatrace, the corresponding credentials have to be stored as Kubernetes secrets in the cluster. 
+In order for keptn to utilize Prometheus metrics to support self-healing, the configured Service Indicators, Service Objectives and Remediation steps need to be updated. 
 
 1. Add the needed resources to enable self-healing in your production environment:
 
@@ -40,7 +40,7 @@ In order for keptn to use both ServiceNow and Dynatrace, the corresponding crede
     keptn configure monitoring prometheus --project=sockshop --service=carts
     ``` 
 
-    Doing so, will set up Prometheus as the monitoring solution used in this use case (please note that with Keptn 0.5.0 Dynatrace is not yet supported for this use case). In addition, Keptn configures Prometheus as well as the Alert Manager to send out alerts in case of high CPU saturation.
+    This will set up Prometheus as the monitoring solution used in this use case (please note that with Keptn 0.5.0 Dynatrace is not yet supported for this use case). In addition, Keptn configures Prometheus monitoring as well as the Prometheus Alert Manager to send out alerts in case of high CPU saturation.
 
 ## Run the use case
 
