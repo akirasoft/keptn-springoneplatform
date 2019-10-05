@@ -1,10 +1,19 @@
 FROM ubuntu:18.04
 
 ENV KEPTN_INSTALL_ENV "cluster"
-
+# Install tools:
 RUN apt-get update \
+  && apt-get install -y apt-transport-https \
+  && apt-get install -y bc \
+  && apt-get install -y ca-certificates \
   && apt-get install -y curl \
-  && apt-get install -y wget 
+  && apt-get install -y git \
+  && apt-get install -y gnupg \
+  && apt-get install -y jq \
+  && apt-get install -y wget \
+  && apt-get install -y vim
+RUN git --version
+RUN jq --version
   
 ## Install go
 # RUN mkdir -p /goroot && \
@@ -14,16 +23,6 @@ RUN apt-get update \
 # ENV GOROOT /goroot
 # ENV GOPATH /gopath
 # ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
-
-# Install tools:
-RUN apt-get install -y jq
-RUN jq --version
-
-RUN apt-get install -y vim
-RUN apt-get install -y bc
-
-RUN apt-get install -y git
-RUN git --version
 
 ARG YQ_VERSION=2.3.0
 RUN wget https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_amd64 && \
@@ -45,25 +44,20 @@ RUN wget https://github.com/openshift/origin/releases/download/v3.11.0/openshift
   tar xzvf openshift*tar.gz && \
   cp openshift-origin-client-tools-*/oc /bin/oc
 
-RUN apt-get install gnupg -y
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-RUN apt-get install apt-transport-https ca-certificates -y
 RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 RUN apt-get update && apt-get install google-cloud-sdk -y
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 RUN curl -sL https://get.keptn.sh | bash
-#RUN wget -q https://storage.googleapis.com/keptn-cli/20190920.0918-latest/keptn-linux.tar.gz -O keptn-linux.tar.gz && \
-#  tar xvzf keptn-linux.tar.gz && \
-#  mv keptn /bin/keptn
 
 WORKDIR /usr/keptn
 COPY . /usr/keptn/scripts
-COPY ./bin/ /usr/local/bin/
+COPY ./bin/pks /usr/local/bin/pks
 
-#RUN git clone https://github.com/akirasoft/keptn-springoneplatform.git
-RUN git clone --branch keptn-0.5.0 https://github.com/jetzlstorfer/keptn-springoneplatform.git --single-branch
+RUN git clone https://github.com/akirasoft/keptn-springoneplatform.git
+#RUN git clone --branch keptn-0.5.0 https://github.com/jetzlstorfer/keptn-springoneplatform.git --single-branch
 
 # get the dynatrace service with PKS support
 RUN git clone --branch release-0.3.1 https://github.com/keptn-contrib/dynatrace-service --single-branch
