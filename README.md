@@ -33,7 +33,7 @@ In this workshop, we are providing two options that will have all the required t
 1. To start the docker container you will use for this workshop, please execute:
 
     ```console
-    docker run -d -t --name keptn-workshop jetzlstorfer/keptn-workshop:0.5
+    docker run -d -t --name keptn-workshop mvilliger/keptn-workshop:0.5
     ```
 
 1. Afterwards, you can shell into this container. Please execute:
