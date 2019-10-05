@@ -2,23 +2,35 @@
 
 To deploy the service into your Kubernetes cluster, you can use the Keptn CLI to trigger a new deployment. 
 
-To do so, please execute the following command:
+## Deploying the database
+
+First, we will deploy the database into our Kubernetes cluster by executing the following command:
 
 ```console
-keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.8.1
+keptn send event new-artifact --project=sockshop --service=carts-db --image=mongo
 ```
 
-This will inform Keptn about the availability of a new artifact (`keptnexamples/carts:0.8.1`). As a result, Keptn will trigger a multi-stage deployment of that service. During the deployment of the service, a number of various different services that are responsible for different tasks are involved, such as:
+## Deploying the service
 
-  - **github-service**: This service modifies the configuration stored in the repository in order to specify the desired image for the carrts service to be deployed (in that case `keptnexamples/carts:0.8.1`).
+Next, we deploy the carts microservice into the cluster by executing the following command:
 
-  - **helm-service**: This service checks out the configuration repository and deploys the service using `helm`.
 
-  - **jmeter-service**: Responsible for running jmeter tests which are specified in the code repository of the `carts` service.
+```console
+keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/jetzlstorfer/carts --tag=0.9.1
+```
 
-  - **pitometer-service**: Evaluates performance test runs, if quality gates are enabled (more on that later).
+To illustrate the scenario this use case addresses, Keptn relies on following internal services: shipyard-service, helm-service, jmeter-service, and gatekeeper-service. These services have the following responsibilities:
 
-  - **gatekeeper-service**: Decides wether an artifact should be promoted into the next stage (e.g., from dev to staging), or if an artifact should be rejected.
+  - **shipyard-service:** 
+    - Creates a project entity and stage entities as declared in the shipyard.
+  - **helm-service:** 
+    - Creates a new service entity, manipulates the Helm chart, and uploades the Helm chart to the configuration store.
+    - Updates the service configuration when a new artifact is available.
+    - Deploys a service when the configuration of a service has changed.
+  - **jmeter-service:**
+    - Runs a test when a new deployment of the service is available.
+  - **gatekeeper-service:**
+    - Evaluates the test result to decide whether the deployment can be promoted to the next stage or not.
 
 To gain an overview of all services involved in the deployment/release of the service, you can use the **keptn's bridge**, which you have set up earlier.
 
@@ -38,12 +50,12 @@ echo http://carts.sockshop-staging.$(kubectl get cm keptn-domain -n keptn -o=jso
 echo http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 ```
 
-Navigate to the URLs to inspect your carts service. In the production namespace, you should receive an output similar to this:
+Navigate to the URLs to inspect your carts service. You should be able to see that Keptn deployed your carts service to all of your environments after executing all specified tests.
 
-<img src="images/carts-production.png" width="50%"/>
+<img src="images/carts-stages.png" width="100%"/>
+
+Let us now continue to activate the quality gates to control if a new version will be promoted or not.
 
 ---
 
 [Previous Step: Onboarding carts service](../01_Onboarding_carts_service) :arrow_backward: :arrow_forward: [Next Step: Introducing quality gates](../03_Introducing_quality_gates)
-
-:arrow_up_small: [Back to overview](https://github.com/akirasoft/keptn-springoneplatform#overview)

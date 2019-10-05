@@ -53,16 +53,23 @@ RUN apt-get update && apt-get install google-cloud-sdk -y
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
-RUN wget https://github.com/github/hub/releases/download/v2.12.7/hub-linux-amd64-2.12.7.tgz \
-  && tar xvzf hub-linux-amd64-2.12.7.tgz \
-  && hub-linux-amd64-2.12.7/install
-
 RUN curl -sL https://get.keptn.sh | bash
+#RUN wget -q https://storage.googleapis.com/keptn-cli/20190920.0918-latest/keptn-linux.tar.gz -O keptn-linux.tar.gz && \
+#  tar xvzf keptn-linux.tar.gz && \
+#  mv keptn /bin/keptn
+
 WORKDIR /usr/keptn
 COPY . /usr/keptn/scripts
-COPY ./binaries/ /usr/local/bin/
+COPY ./bin/ /usr/local/bin/
 
-RUN git clone https://github.com/akirasoft/keptn-springoneplatform.git
+#RUN git clone https://github.com/akirasoft/keptn-springoneplatform.git
+RUN git clone --branch keptn-0.5.0 https://github.com/jetzlstorfer/keptn-springoneplatform.git --single-branch
+
+# get the dynatrace service with PKS support
+RUN git clone --branch release-0.3.1 https://github.com/keptn-contrib/dynatrace-service --single-branch
+
+# get the examples folder
+RUN git clone --branch 0.5.0 https://github.com/keptn/examples.git --single-branch
+
 # Start the app
-	
 CMD tail -f /dev/null
