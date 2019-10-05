@@ -18,7 +18,7 @@ In order for keptn to utilize Prometheus metrics to support self-healing, the co
     keptn add-resource --project=sockshop --service=carts --stage=production --resource=service-indicators.yaml --resourceUri=service-indicators.yaml
     ```
     ```console
-    keptn add-resource --project=sockshop --service=carts --stage=production--resource=service-objectives-prometheus-only.yaml --resourceUri=service-objectives.yaml
+    keptn add-resource --project=sockshop --service=carts --stage=production --resource=service-objectives-prometheus-only.yaml --resourceUri=service-objectives.yaml
     ```
     ```console
     keptn add-resource --project=sockshop --service=carts --stage=production --resource=remediation.yaml --resourceUri=remediation.yaml
