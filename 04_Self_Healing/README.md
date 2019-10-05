@@ -55,7 +55,7 @@ In order to simulate user traffic that is causing an unhealthy behavior in the c
 1. Move to the correct folder:
 
     ```console
-    cd /usr/keptn/examples/load/generation/bin
+    cd /usr/keptn/examples/load-generation/bin
     ```
 
 1. Execute the load generation program:
