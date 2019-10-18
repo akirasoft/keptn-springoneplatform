@@ -16,9 +16,8 @@ RUN apt-get update -qq && \
   && rm -rf /var/lib/apt/lists/*
 
 ARG YQ_VERSION=2.3.0
-RUN wget -q https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_amd64 && \
-  chmod +x yq_linux_amd64 && \
-  cp yq_linux_amd64 /bin/yq
+RUN wget -q https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_amd64 -O /bin/yq && \
+  chmod +x /bin/yq
 RUN yq --version
 
 ARG HELM_VERSION=2.12.3
