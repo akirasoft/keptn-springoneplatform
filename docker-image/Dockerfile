@@ -1,10 +1,9 @@
-FROM ubuntu:18.04
+FROM docker:17.12.0-ce as static-docker-source
+FROM alpine:3.7
 
-ENV KEPTN_INSTALL_ENV "cluster"
 # Install tools:
-RUN apt-get update -qq && \
-  apt-get install -qqy --no-install-recommends \
-    apt-transport-https \
+RUN apk add --update --no-cache \
+    bash \
     bc \
     ca-certificates \
     curl \
@@ -12,8 +11,7 @@ RUN apt-get update -qq && \
     gnupg \
     jq \
     wget \
-    vim \
-  && rm -rf /var/lib/apt/lists/*
+    vim 
 
 ARG YQ_VERSION=2.3.0
 RUN wget -q https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_amd64 -O /bin/yq && \
@@ -25,7 +23,7 @@ RUN wget -q https://storage.googleapis.com/kubernetes-helm/helm-v$HELM_VERSION-l
   tar -zxvf helm-v$HELM_VERSION-linux-amd64.tar.gz && \
   mv linux-amd64/helm /bin/helm && \
   rm -f helm-v$HELM_VERSION-linux-amd64.tar.gz && \
-  rm -rf linux-amd6
+  rm -rf linux-amd64
 
 ARG KUBE_VERSION=1.14.1
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/v$KUBE_VERSION/bin/linux/amd64/kubectl -O /bin/kubectl && \
@@ -38,13 +36,39 @@ RUN wget -q https://github.com/openshift/origin/releases/download/v3.11.0/opensh
   rm -f openshift*tar.gz && \
   rm -rf openshift-origin-client-tools-*
 
-RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
-RUN apt-get update -qq && apt-get install -qqy google-cloud-sdk --no-install-recommends && rm -rf /var/lib/apt/lists/*
+# install gcloud sdk for alpine
+ARG CLOUD_SDK_VERSION=267.0.0
+ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
+ENV PATH /google-cloud-sdk/bin:$PATH
+COPY --from=static-docker-source /usr/local/bin/docker /usr/local/bin/docker
+RUN apk --no-cache add \
+        curl \
+        python \
+        py-crcmod \
+        bash \
+        libc6-compat \
+        openssh-client \
+        git \
+        gnupg \
+    && curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz && \
+    tar xzf google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz && \
+    rm google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz && \
+    gcloud config set core/disable_usage_reporting true && \
+    gcloud config set component_manager/disable_update_check true && \
+    gcloud config set metrics/environment github_docker_image && \
+    gcloud --version
 
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+# install azure cli for alpine
 
-RUN curl -sL https://get.keptn.sh | bash
+#RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
+ARG KEPTN_VERSION="0.5.0"
+ARG DISTR=linux
+RUN curl -L "https://github.com/keptn/keptn/releases/download/${KEPTN_VERSION}/${KEPTN_VERSION}_keptn-${DISTR}.tar" --output keptn-install-${KEPTN_VERSION}.tar && \
+  tar -C /tmp -xvf keptn-install-${KEPTN_VERSION}.tar && \
+  rm keptn-install-${KEPTN_VERSION}.tar && \
+  chmod +x /tmp/keptn && \
+  mv /tmp/keptn /usr/local/bin/keptn
 
 WORKDIR /usr/keptn
 COPY . /usr/keptn/scripts
