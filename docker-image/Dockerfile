@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 ENV KEPTN_INSTALL_ENV "cluster"
 # Install tools:
-RUN apt-get update && \
+RUN apt-get update -qq && \
   apt-get install -qqy --no-install-recommends \
     apt-transport-https \
     bc \
